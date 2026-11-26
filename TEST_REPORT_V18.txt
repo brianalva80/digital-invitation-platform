@@ -1,0 +1,7 @@
+AMPLOP V18 — targeted source and review QA
+PASS: node scripts/build-showcase.mjs (5 generated demos using immutable V14 engine).
+PASS: node scripts/review-landing.mjs (actual JSX transpiled to review-only static HTML).
+PASS: npm test — 8/8 Node checks (5 foundation, 3 showcase); V16 manifest and V14 editor byte identity verified.
+PASS: python tests/review_landing.py — 38/38 final in-memory Chromium checks. Four viewport widths: 320, 390, 768, 1440; no horizontal overflow, 5 cards, all images decode, native envelope open and keyboard close, collection anchor, no uncaught page errors; five generated demos load and open in reduced-motion mode. Initial additional opening test had ambiguous text selector for Secret Letter (two matching buttons); corrected selector to #open and reran successfully.
+Visual review: actual static snapshot screenshots desktop/mobile and full overview inspected. Existing demo photography and palette retained. All showcase images derived from prior source assets, no new assets from third parties.
+LIMITATIONS: no Next SSR/runtime/build/semantic typecheck/HTTP routing verification; npm registry blocked in V17, no retry in V18. Relative links verified against existing output files, not clicked via a live HTTP server. Browser check is in-memory snapshot, not the Next.js app. Full-motion and audio regression, real devices, Safari, accessibility audit, Lighthouse pending. No production data, deployment, Codex or Work invoked. Individual demos intentionally music-off; editor unchanged.

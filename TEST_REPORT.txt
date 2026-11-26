@@ -1,0 +1,10 @@
+AMPLOP V17 — actual targeted checks
+Environment: Node.js v22.16.0, npm 10.9.2, global TypeScript 5.8.3.
+PASS 5/5 npm test (original registry/source presence, V16 manifest, exact demo equality, scaffold files/scripts/dependency scope, no credentials or migration directory).
+PASS TypeScript transpilation/syntax (8 source files, including next.config.ts); not semantic type checking.
+PASS health handler direct execution: JSON response 200 with no-store and liveness scope.
+PASS headers config direct execution: noindex/no follow configuration exists. Actual response headers not tested.
+PASS demo sync SHA-256 8d78787091132a280b96fa3c0d0653e9b7cc6f310f3d5f2b5f53317a98b2c243.
+BLOCKED npm install: EAI_AGAIN registry.npmjs.org resolving @types/node. One bounded attempt, no further retries. No installed Next.js dependencies or package-lock.json. Resolve patched compatible versions and retain lockfile on successful install.
+NOT RUN: next dev/build/start, semantic TypeScript typecheck, HTTP routing/headers, full browser regression, staging and physical device testing. No production readiness claim.
+V17 changes only; no Codex/Work execution, repository mutation, real customer data, cloud provisioning, payments or deployment.

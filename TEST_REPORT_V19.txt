@@ -1,0 +1,8 @@
+AMPLOP V19 — Targeted QA
+PASS: 11/11 Node tests (3 dashboard + 8 foundation/showcase, including original V16 manifest and unchanged V14 studio).
+PASS: JavaScript syntax checks (dashboard.js, engine-v14.js, bundle-v14.js, sync-dashboard.mjs).
+PASS: 40/40 in-memory Chromium assertions. Actual dashboard/editor script and V14 renderer exercised, images embedded for review, storage simulated with fixture transferred between documents. Personalized data and music settings preserved across all five design switches, sandbox attributes, personalized preview output, audio element, cleanup, corrupt-draft protection and viewport overflow verified. No uncaught page errors in final run. Audio playback not auditioned; uploads not exercised in V19.
+PASS: Screenshot review desktop and mobile (in-memory simulation). Files under package root.
+BLOCKED: HTTP and file navigation in Chromium by environment administrator policy. No actual HTTP navigation, native localStorage, cross-tab races, or file-origin behavior tested. No bypass attempted. QA used set_content as in V18.
+NOT RUN: npm install (prior registry blocker; not retried), Next.js runtime/build/semantic type checking, real devices/Safari, Lighthouse, cloud authentication/database/payment/publication. No production deployment. No Codex/Work sessions invoked.
+Source implementation: V19 local single-workspace demo; modules V20–V25 remain out of scope. Native static dashboard served by Next route redirect, chosen to reuse editor/runtime without new dependencies.

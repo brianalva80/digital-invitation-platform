@@ -1,0 +1,349 @@
+AMPLOP V22 — actual local test report
+
+Targeted: 11/11 Node tests; cumulative npm test: 47/47 (includes targeted). Static SQL/API assertions are not database execution.
+Chromium: 30/30 in-memory iframe and outer form UI checks; no live submission, HTTP/CSP headers, DB, auth or payment verification.
+TypeScript: syntax-only transpileModule, 7/7 changed TS/TSX files; not semantic checking.
+No new npm dependencies; no installation, no Codex or Work, no Supabase or Midtrans calls. SQL fixture prepared but not executed; Next build and staging remain open.
+
+Syntax OK app/account/guests.tsx
+Syntax OK app/account/workspace.tsx
+Syntax OK app/api/guests/route.ts
+Syntax OK app/g/[token]/route.ts
+Syntax OK app/g/[token]/invitation/route.ts
+Syntax OK lib/guests/server.ts
+Syntax OK next.config.ts
+{
+  "passed": 30,
+  "checks": [
+    "cinematic-romance guest name",
+    "cinematic-romance no local RSVP",
+    "cinematic-romance one outer form",
+    "cinematic-romance form fields editable",
+    "cinematic-romance mobile no overflow",
+    "cinematic-romance no pageerror",
+    "enchanted-garden guest name",
+    "enchanted-garden no local RSVP",
+    "enchanted-garden one outer form",
+    "enchanted-garden form fields editable",
+    "enchanted-garden mobile no overflow",
+    "enchanted-garden no pageerror",
+    "our-story guest name",
+    "our-story no local RSVP",
+    "our-story one outer form",
+    "our-story form fields editable",
+    "our-story mobile no overflow",
+    "our-story no pageerror",
+    "secret-letter guest name",
+    "secret-letter no local RSVP",
+    "secret-letter one outer form",
+    "secret-letter form fields editable",
+    "secret-letter mobile no overflow",
+    "secret-letter no pageerror",
+    "wedding-editorial guest name",
+    "wedding-editorial no local RSVP",
+    "wedding-editorial one outer form",
+    "wedding-editorial form fields editable",
+    "wedding-editorial mobile no overflow",
+    "wedding-editorial no pageerror"
+  ],
+  "scope": "in-memory fixture iframe, reduced motion, no HTTP or form submission"
+}
+
+
+
+> amplop@0.22.0 test
+> node --test tests/foundation.test.mjs tests/showcase.test.mjs tests/dashboard.test.mjs tests/cloud.test.mjs tests/payment.test.mjs tests/guests.test.mjs
+
+TAP version 13
+# Subtest: exact original renderer source reused
+ok 1 - exact original renderer source reused
+  ---
+  duration_ms: 1.181784
+  type: 'test'
+  ...
+# Subtest: all five templates preserve draft content through local/cloud roundtrip
+ok 2 - all five templates preserve draft content through local/cloud roundtrip
+  ---
+  duration_ms: 3.667707
+  type: 'test'
+  ...
+# Subtest: actual WebP and original MP3 survive unchanged
+ok 3 - actual WebP and original MP3 survive unchanged
+  ---
+  duration_ms: 2.702491
+  type: 'test'
+  ...
+# Subtest: legacy draft missing optional V12 fields is normalized without deleting content
+ok 4 - legacy draft missing optional V12 fields is normalized without deleting content
+  ---
+  duration_ms: 0.263979
+  type: 'test'
+  ...
+# Subtest: primary draft takes precedence; malformed primary is not silently replaced
+ok 5 - primary draft takes precedence; malformed primary is not silently replaced
+  ---
+  duration_ms: 0.36374
+  type: 'test'
+  ...
+# Subtest: unsupported fields, template, colors and typography rejected
+ok 6 - unsupported fields, template, colors and typography rejected
+  ---
+  duration_ms: 1.181735
+  type: 'test'
+  ...
+# Subtest: unsafe photo/audio sources, missing custom audio and oversized upload rejected
+ok 7 - unsafe photo/audio sources, missing custom audio and oversized upload rejected
+  ---
+  duration_ms: 3.188063
+  type: 'test'
+  ...
+# Subtest: invalid event schedule, schema and timezone rejected using V14 validator
+ok 8 - invalid event schedule, schema and timezone rejected using V14 validator
+  ---
+  duration_ms: 0.533997
+  type: 'test'
+  ...
+# Subtest: invalid restore does not overwrite previous local draft
+ok 9 - invalid restore does not overwrite previous local draft
+  ---
+  duration_ms: 0.608649
+  type: 'test'
+  ...
+# Subtest: storage quota error propagates, no clear or fallback mutation
+ok 10 - storage quota error propagates, no clear or fallback mutation
+  ---
+  duration_ms: 0.765245
+  type: 'test'
+  ...
+# Subtest: clear affects both local draft keys only
+ok 11 - clear affects both local draft keys only
+  ---
+  duration_ms: 0.172531
+  type: 'test'
+  ...
+# Subtest: migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+ok 12 - migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+  ---
+  duration_ms: 0.332351
+  type: 'test'
+  ...
+# Subtest: cloud UI separates demo, explicit confirmation, conflict and auth flows
+ok 13 - cloud UI separates demo, explicit confirmation, conflict and auth flows
+  ---
+  duration_ms: 0.212922
+  type: 'test'
+  ...
+# Subtest: dashboard uses unchanged V14 engine and editor storage keys
+ok 14 - dashboard uses unchanged V14 engine and editor storage keys
+  ---
+  duration_ms: 2.420765
+  type: 'test'
+  ...
+# Subtest: dashboard route and landing CTA integrated; one authorized auth dependency
+ok 15 - dashboard route and landing CTA integrated; one authorized auth dependency
+  ---
+  duration_ms: 0.805075
+  type: 'test'
+  ...
+# Subtest: dashboard has sandboxed preview and transparent planned module states
+ok 16 - dashboard has sandboxed preview and transparent planned module states
+  ---
+  duration_ms: 0.188355
+  type: 'test'
+  ...
+# Subtest: exactly five original template keys and source files
+ok 17 - exactly five original template keys and source files
+  ---
+  duration_ms: 1.146982
+  type: 'test'
+  ...
+# Subtest: original V16 manifest integrity
+ok 18 - original V16 manifest integrity
+  ---
+  duration_ms: 12.213811
+  type: 'test'
+  ...
+# Subtest: public preview byte-identical to V14 source
+ok 19 - public preview byte-identical to V14 source
+  ---
+  duration_ms: 1.035143
+  type: 'test'
+  ...
+# Subtest: foundation route files and runtime scripts present
+ok 20 - foundation route files and runtime scripts present
+  ---
+  duration_ms: 0.356057
+  type: 'test'
+  ...
+# Subtest: no local credentials and migration source present
+ok 21 - no local credentials and migration source present
+  ---
+  duration_ms: 0.273773
+  type: 'test'
+  ...
+# Subtest: opaque token exactly 64 lowercase hex
+ok 22 - opaque token exactly 64 lowercase hex
+  ---
+  duration_ms: 0.970215
+  type: 'test'
+  ...
+# Subtest: guest validation and limits
+ok 23 - guest validation and limits
+  ---
+  duration_ms: 0.752406
+  type: 'test'
+  ...
+# Subtest: RSVP strict capacity and attendance
+ok 24 - RSVP strict capacity and attendance
+  ---
+  duration_ms: 0.258851
+  type: 'test'
+  ...
+# Subtest: CSV parses quotes, comma, BOM, CRLF
+ok 25 - CSV parses quotes, comma, BOM, CRLF
+  ---
+  duration_ms: 0.379032
+  type: 'test'
+  ...
+# Subtest: CSV rejects malformed, oversized and invalid rows atomically
+ok 26 - CSV rejects malformed, oversized and invalid rows atomically
+  ---
+  duration_ms: 1.049745
+  type: 'test'
+  ...
+# Subtest: CSV export escapes formulas and excludes tokens
+ok 27 - CSV export escapes formulas and excludes tokens
+  ---
+  duration_ms: 0.280363
+  type: 'test'
+  ...
+# Subtest: statistics distinguish invitation units from attending people
+ok 28 - statistics distinguish invitation units from attending people
+  ---
+  duration_ms: 0.231399
+  type: 'test'
+  ...
+# Subtest: guest shell escapes name and wishes, sandboxed iframe, real server form
+ok 29 - guest shell escapes name and wishes, sandboxed iframe, real server form
+  ---
+  duration_ms: 0.246863
+  type: 'test'
+  ...
+# Subtest: five personalized templates reuse V14 renderer and remove local demo form
+ok 30 - five personalized templates reuse V14 renderer and remove local demo form
+  ---
+  duration_ms: 82.587237
+  type: 'test'
+  ...
+# Subtest: SQL guards server-only access, owner and token scope, payment and seat locks
+ok 31 - SQL guards server-only access, owner and token scope, payment and seat locks
+  ---
+  duration_ms: 0.872508
+  type: 'test'
+  ...
+# Subtest: routes use verified actor and bounded form, no cache, no public RPC direct access
+ok 32 - routes use verified actor and bounded form, no cache, no public RPC direct access
+  ---
+  duration_ms: 0.305962
+  type: 'test'
+  ...
+# Subtest: server price is explicit, bounded integer IDR, no fallback
+ok 33 - server price is explicit, bounded integer IDR, no fallback
+  ---
+  duration_ms: 1.134533
+  type: 'test'
+  ...
+# Subtest: valid order UUID and custom slug allowlist
+ok 34 - valid order UUID and custom slug allowlist
+  ---
+  duration_ms: 0.322577
+  type: 'test'
+  ...
+# Subtest: checkout URL restricted to Midtrans sandbox host and Snap path
+ok 35 - checkout URL restricted to Midtrans sandbox host and Snap path
+  ---
+  duration_ms: 0.186421
+  type: 'test'
+  ...
+# Subtest: notification SHA512 verifies exact fields; tampering and forged signature rejected
+ok 36 - notification SHA512 verifies exact fields; tampering and forged signature rejected
+  ---
+  duration_ms: 0.685285
+  type: 'test'
+  ...
+# Subtest: canonical settlement with exact currency, amount and ID only
+ok 37 - canonical settlement with exact currency, amount and ID only
+  ---
+  duration_ms: 0.314816
+  type: 'test'
+  ...
+# Subtest: capture, pending, challenge, unrecognized or unsuccessful status never unlock
+ok 38 - capture, pending, challenge, unrecognized or unsuccessful status never unlock
+  ---
+  duration_ms: 0.159161
+  type: 'test'
+  ...
+# Subtest: refund/chargeback/expiry and fraud deny classify as blocked
+ok 39 - refund/chargeback/expiry and fraud deny classify as blocked
+  ---
+  duration_ms: 0.266352
+  type: 'test'
+  ...
+# Subtest: private and public render all five actual V14 templates, no form, guest anonymized only publicly
+ok 40 - private and public render all five actual V14 templates, no form, guest anonymized only publicly
+  ---
+  duration_ms: 114.075621
+  type: 'test'
+  ...
+# Subtest: public render rejects invalid cloud payload and escapes user content
+ok 41 - public render rejects invalid cloud payload and escapes user content
+  ---
+  duration_ms: 6.855611
+  type: 'test'
+  ...
+# Subtest: custom media and selected theme retained in server-rendered publication
+ok 42 - custom media and selected theme retained in server-rendered publication
+  ---
+  duration_ms: 5.388376
+  type: 'test'
+  ...
+# Subtest: SQL source has unique order, claim, owner check, sticky block and atomic revision publication
+ok 43 - SQL source has unique order, claim, owner check, sticky block and atomic revision publication
+  ---
+  duration_ms: 0.296217
+  type: 'test'
+  ...
+# Subtest: API source checks authenticated identity, canonical provider verification, private no-store and public paid-only RPC
+ok 44 - API source checks authenticated identity, canonical provider verification, private no-store and public paid-only RPC
+  ---
+  duration_ms: 0.24502
+  type: 'test'
+  ...
+# Subtest: five showcase cards and local demo links
+ok 45 - five showcase cards and local demo links
+  ---
+  duration_ms: 20.244537
+  type: 'test'
+  ...
+# Subtest: CTA, navigation and accessible native opening present
+ok 46 - CTA, navigation and accessible native opening present
+  ---
+  duration_ms: 0.67574
+  type: 'test'
+  ...
+# Subtest: staging remains noindex and claims remain demo-only
+ok 47 - staging remains noindex and claims remain demo-only
+  ---
+  duration_ms: 0.294955
+  type: 'test'
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 280.658166
+V14 reference, editor and all five templates byte-identical

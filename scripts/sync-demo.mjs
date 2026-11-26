@@ -1,0 +1,13 @@
+import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+const root = new URL('../', import.meta.url);
+const manifest = await readFile(new URL('reference/v16/MANIFEST.sha256', root), 'utf8');
+const rel = 'reference/v14/amplop-studio-v14.html';
+const record = manifest.split(/\r?\n/).find(line => line.endsWith(`  ${rel}`));
+if (!record) throw new Error('V14 checksum missing');
+const data = await readFile(new URL(`reference/v16/${rel}`, root));
+const hash = createHash('sha256').update(data).digest('hex');
+if (hash !== record.split('  ')[0]) throw new Error('V14 checksum mismatch; restore original reference');
+await mkdir(new URL('public/demo/', root), { recursive: true });
+await writeFile(new URL('public/demo/studio-v14.html', root), data);
+console.log(`V14 demo synchronized: ${hash}`);

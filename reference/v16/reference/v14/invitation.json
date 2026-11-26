@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "amplop-demo-001",
+  "couple": {"first": "Adrian", "second": "Clara"},
+  "guest": {"id": "demo-guest", "name": "Tamu Istimewa"},
+  "city": "Surabaya",
+  "country": "Indonesia",
+  "timezone": "Asia/Jakarta",
+  "events": {
+    "ceremony": {"title": "Pemberkatan", "start": "2027-06-20T10:00:00+07:00", "end": "2027-06-20T11:00:00+07:00", "venue": "The Garden Chapel (demo)", "location": "Surabaya, Jawa Timur (lokasi demo)"},
+    "reception": {"title": "Resepsi", "start": "2027-06-20T18:00:00+07:00", "end": "2027-06-20T21:00:00+07:00", "venue": "The Garden Pavilion (demo)", "location": "Surabaya, Jawa Timur (lokasi demo)"}
+  },
+  "story": [
+    {"year": "2021", "text": "Sebuah percakapan sederhana menjadi awal cerita yang tidak pernah kami duga.", "note": "Aku tidak tahu bahwa hari biasa itu akan menjadi awal dari begitu banyak cerita."},
+    {"year": "2024", "text": "Dalam tawa, perjalanan, dan hari-hari biasa, kami belajar untuk saling memilih.", "note": "Di antara banyak rencana dan perubahan, kita selalu menemukan jalan kembali."},
+    {"year": "2026", "text": "Kini kami siap melangkah bersama, dikelilingi orang-orang yang kami kasihi.", "note": "Untuk semua hal yang belum kita ketahui, aku ingin menjalaninya bersamamu."}
+  ],
+  "photos": {"portrait": "portrait.webp", "walk": "walk.webp", "window": "window.webp"}
+}

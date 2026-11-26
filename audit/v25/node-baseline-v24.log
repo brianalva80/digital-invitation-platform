@@ -1,0 +1,464 @@
+
+> amplop@0.24.0 test
+> node --test tests/foundation.test.mjs tests/showcase.test.mjs tests/dashboard.test.mjs tests/cloud.test.mjs tests/payment.test.mjs tests/guests.test.mjs tests/event.test.mjs tests/planning.test.mjs
+
+TAP version 13
+# Subtest: exact original renderer source reused
+ok 1 - exact original renderer source reused
+  ---
+  duration_ms: 1.78139
+  type: 'test'
+  ...
+# Subtest: all five templates preserve draft content through local/cloud roundtrip
+ok 2 - all five templates preserve draft content through local/cloud roundtrip
+  ---
+  duration_ms: 3.900878
+  type: 'test'
+  ...
+# Subtest: actual WebP and original MP3 survive unchanged
+ok 3 - actual WebP and original MP3 survive unchanged
+  ---
+  duration_ms: 4.732453
+  type: 'test'
+  ...
+# Subtest: legacy draft missing optional V12 fields is normalized without deleting content
+ok 4 - legacy draft missing optional V12 fields is normalized without deleting content
+  ---
+  duration_ms: 0.274895
+  type: 'test'
+  ...
+# Subtest: primary draft takes precedence; malformed primary is not silently replaced
+ok 5 - primary draft takes precedence; malformed primary is not silently replaced
+  ---
+  duration_ms: 1.402607
+  type: 'test'
+  ...
+# Subtest: unsupported fields, template, colors and typography rejected
+ok 6 - unsupported fields, template, colors and typography rejected
+  ---
+  duration_ms: 0.635429
+  type: 'test'
+  ...
+# Subtest: unsafe photo/audio sources, missing custom audio and oversized upload rejected
+ok 7 - unsafe photo/audio sources, missing custom audio and oversized upload rejected
+  ---
+  duration_ms: 6.696408
+  type: 'test'
+  ...
+# Subtest: invalid event schedule, schema and timezone rejected using V14 validator
+ok 8 - invalid event schedule, schema and timezone rejected using V14 validator
+  ---
+  duration_ms: 1.009785
+  type: 'test'
+  ...
+# Subtest: invalid restore does not overwrite previous local draft
+ok 9 - invalid restore does not overwrite previous local draft
+  ---
+  duration_ms: 0.82172
+  type: 'test'
+  ...
+# Subtest: storage quota error propagates, no clear or fallback mutation
+ok 10 - storage quota error propagates, no clear or fallback mutation
+  ---
+  duration_ms: 1.400193
+  type: 'test'
+  ...
+# Subtest: clear affects both local draft keys only
+ok 11 - clear affects both local draft keys only
+  ---
+  duration_ms: 0.270689
+  type: 'test'
+  ...
+# Subtest: migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+ok 12 - migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+  ---
+  duration_ms: 0.499504
+  type: 'test'
+  ...
+# Subtest: cloud UI separates demo, explicit confirmation, conflict and auth flows
+ok 13 - cloud UI separates demo, explicit confirmation, conflict and auth flows
+  ---
+  duration_ms: 0.245501
+  type: 'test'
+  ...
+# Subtest: dashboard uses unchanged V14 engine and editor storage keys
+ok 14 - dashboard uses unchanged V14 engine and editor storage keys
+  ---
+  duration_ms: 3.324148
+  type: 'test'
+  ...
+# Subtest: dashboard route and landing CTA integrated; authorized auth and QR encoder dependencies
+ok 15 - dashboard route and landing CTA integrated; authorized auth and QR encoder dependencies
+  ---
+  duration_ms: 1.200532
+  type: 'test'
+  ...
+# Subtest: dashboard has sandboxed preview and transparent planned module states
+ok 16 - dashboard has sandboxed preview and transparent planned module states
+  ---
+  duration_ms: 0.309878
+  type: 'test'
+  ...
+# Subtest: PIN validates 6–8 digits and rejects coercion or whitespace
+ok 17 - PIN validates 6–8 digits and rejects coercion or whitespace
+  ---
+  duration_ms: 1.466143
+  type: 'test'
+  ...
+# Subtest: salted scrypt hash verifies correct PIN only and is different each time
+ok 18 - salted scrypt hash verifies correct PIN only and is different each time
+  ---
+  duration_ms: 216.902035
+  type: 'test'
+  ...
+# Subtest: staff secrets are random and hash digest is deterministic
+ok 19 - staff secrets are random and hash digest is deterministic
+  ---
+  duration_ms: 0.567827
+  type: 'test'
+  ...
+# Subtest: signed PIN proof bound to personal token, key and 8h expiry
+ok 20 - signed PIN proof bound to personal token, key and 8h expiry
+  ---
+  duration_ms: 1.075023
+  type: 'test'
+  ...
+# Subtest: QR parser accepts only separate AMPLOP23 credential
+ok 21 - QR parser accepts only separate AMPLOP23 credential
+  ---
+  duration_ms: 0.350109
+  type: 'test'
+  ...
+# Subtest: check-in count strictly integer 1–10
+ok 22 - check-in count strictly integer 1–10
+  ---
+  duration_ms: 0.15894
+  type: 'test'
+  ...
+# Subtest: attendance CSV protects formulas, does not export credentials or messages
+ok 23 - attendance CSV protects formulas, does not export credentials or messages
+  ---
+  duration_ms: 0.402998
+  type: 'test'
+  ...
+# Subtest: PIN screen no guest data and escapes notice, uses bounded password form
+ok 24 - PIN screen no guest data and escapes notice, uses bounded password form
+  ---
+  duration_ms: 0.233302
+  type: 'test'
+  ...
+# Subtest: guest ticket is separate from personal token, optional for legacy fixture
+ok 25 - guest ticket is separate from personal token, optional for legacy fixture
+  ---
+  duration_ms: 0.563822
+  type: 'test'
+  ...
+# Subtest: all guest HTTP surfaces require same gate; cookie scoped and HTTPS; generic private route disabled
+ok 26 - all guest HTTP surfaces require same gate; cookie scoped and HTTPS; generic private route disabled
+  ---
+  duration_ms: 0.848371
+  type: 'test'
+  ...
+# Subtest: SQL boundaries: private reads, attempt quota, owner/staff lock, paid publication, guest scope, duplicate rejection and capacity
+ok 27 - SQL boundaries: private reads, attempt quota, owner/staff lock, paid publication, guest scope, duplicate rejection and capacity
+  ---
+  duration_ms: 0.273473
+  type: 'test'
+  ...
+# Subtest: staff endpoints do not use owner credentials, cannot draw; owner route verified
+ok 28 - staff endpoints do not use owner credentials, cannot draw; owner route verified
+  ---
+  duration_ms: 0.196026
+  type: 'test'
+  ...
+# Subtest: QR route uses actual encoder with quiet zone and private headers
+ok 29 - QR route uses actual encoder with quiet zone and private headers
+  ---
+  duration_ms: 0.155074
+  type: 'test'
+  ...
+# Subtest: camera has fallback, cleanup, no auto-submit; wheel reduced motion
+ok 30 - camera has fallback, cleanup, no auto-submit; wheel reduced motion
+  ---
+  duration_ms: 0.273673
+  type: 'test'
+  ...
+# Subtest: exactly five original template keys and source files
+ok 31 - exactly five original template keys and source files
+  ---
+  duration_ms: 1.49064
+  type: 'test'
+  ...
+# Subtest: original V16 manifest integrity
+ok 32 - original V16 manifest integrity
+  ---
+  duration_ms: 37.147333
+  type: 'test'
+  ...
+# Subtest: public preview byte-identical to V14 source
+ok 33 - public preview byte-identical to V14 source
+  ---
+  duration_ms: 8.15503
+  type: 'test'
+  ...
+# Subtest: foundation route files and runtime scripts present
+ok 34 - foundation route files and runtime scripts present
+  ---
+  duration_ms: 2.110747
+  type: 'test'
+  ...
+# Subtest: no local credentials and migration source present
+ok 35 - no local credentials and migration source present
+  ---
+  duration_ms: 5.78985
+  type: 'test'
+  ...
+# Subtest: opaque token exactly 64 lowercase hex
+ok 36 - opaque token exactly 64 lowercase hex
+  ---
+  duration_ms: 1.22543
+  type: 'test'
+  ...
+# Subtest: guest validation and limits
+ok 37 - guest validation and limits
+  ---
+  duration_ms: 0.777984
+  type: 'test'
+  ...
+# Subtest: RSVP strict capacity and attendance
+ok 38 - RSVP strict capacity and attendance
+  ---
+  duration_ms: 0.253012
+  type: 'test'
+  ...
+# Subtest: CSV parses quotes, comma, BOM, CRLF
+ok 39 - CSV parses quotes, comma, BOM, CRLF
+  ---
+  duration_ms: 0.459553
+  type: 'test'
+  ...
+# Subtest: CSV rejects malformed, oversized and invalid rows atomically
+ok 40 - CSV rejects malformed, oversized and invalid rows atomically
+  ---
+  duration_ms: 1.084498
+  type: 'test'
+  ...
+# Subtest: CSV export escapes formulas and excludes tokens
+ok 41 - CSV export escapes formulas and excludes tokens
+  ---
+  duration_ms: 0.275856
+  type: 'test'
+  ...
+# Subtest: statistics distinguish invitation units from attending people
+ok 42 - statistics distinguish invitation units from attending people
+  ---
+  duration_ms: 0.193672
+  type: 'test'
+  ...
+# Subtest: guest shell escapes name and wishes, sandboxed iframe, real server form
+ok 43 - guest shell escapes name and wishes, sandboxed iframe, real server form
+  ---
+  duration_ms: 0.250609
+  type: 'test'
+  ...
+# Subtest: five personalized templates reuse V14 renderer and remove local demo form
+ok 44 - five personalized templates reuse V14 renderer and remove local demo form
+  ---
+  duration_ms: 127.675273
+  type: 'test'
+  ...
+# Subtest: SQL guards server-only access, owner and token scope, payment and seat locks
+ok 45 - SQL guards server-only access, owner and token scope, payment and seat locks
+  ---
+  duration_ms: 0.627307
+  type: 'test'
+  ...
+# Subtest: routes use verified actor and bounded form, no cache, no public RPC direct access
+ok 46 - routes use verified actor and bounded form, no cache, no public RPC direct access
+  ---
+  duration_ms: 0.259111
+  type: 'test'
+  ...
+# Subtest: server price is explicit, bounded integer IDR, no fallback
+ok 47 - server price is explicit, bounded integer IDR, no fallback
+  ---
+  duration_ms: 1.148524
+  type: 'test'
+  ...
+# Subtest: valid order UUID and custom slug allowlist
+ok 48 - valid order UUID and custom slug allowlist
+  ---
+  duration_ms: 0.344389
+  type: 'test'
+  ...
+# Subtest: checkout URL restricted to Midtrans sandbox host and Snap path
+ok 49 - checkout URL restricted to Midtrans sandbox host and Snap path
+  ---
+  duration_ms: 0.174163
+  type: 'test'
+  ...
+# Subtest: notification SHA512 verifies exact fields; tampering and forged signature rejected
+ok 50 - notification SHA512 verifies exact fields; tampering and forged signature rejected
+  ---
+  duration_ms: 0.691704
+  type: 'test'
+  ...
+# Subtest: canonical settlement with exact currency, amount and ID only
+ok 51 - canonical settlement with exact currency, amount and ID only
+  ---
+  duration_ms: 1.234483
+  type: 'test'
+  ...
+# Subtest: capture, pending, challenge, unrecognized or unsuccessful status never unlock
+ok 52 - capture, pending, challenge, unrecognized or unsuccessful status never unlock
+  ---
+  duration_ms: 0.333233
+  type: 'test'
+  ...
+# Subtest: refund/chargeback/expiry and fraud deny classify as blocked
+ok 53 - refund/chargeback/expiry and fraud deny classify as blocked
+  ---
+  duration_ms: 0.37113
+  type: 'test'
+  ...
+# Subtest: private and public render all five actual V14 templates, no form, guest anonymized only publicly
+ok 54 - private and public render all five actual V14 templates, no form, guest anonymized only publicly
+  ---
+  duration_ms: 256.384288
+  type: 'test'
+  ...
+# Subtest: public render rejects invalid cloud payload and escapes user content
+ok 55 - public render rejects invalid cloud payload and escapes user content
+  ---
+  duration_ms: 17.505624
+  type: 'test'
+  ...
+# Subtest: custom media and selected theme retained in server-rendered publication
+ok 56 - custom media and selected theme retained in server-rendered publication
+  ---
+  duration_ms: 8.571529
+  type: 'test'
+  ...
+# Subtest: SQL source has unique order, claim, owner check, sticky block and atomic revision publication
+ok 57 - SQL source has unique order, claim, owner check, sticky block and atomic revision publication
+  ---
+  duration_ms: 0.325722
+  type: 'test'
+  ...
+# Subtest: API source checks authenticated identity, canonical provider verification, private no-store and public paid-only RPC
+ok 58 - API source checks authenticated identity, canonical provider verification, private no-store and public paid-only RPC
+  ---
+  duration_ms: 0.235545
+  type: 'test'
+  ...
+# Subtest: empty plan and strict full snapshot round trip
+ok 59 - empty plan and strict full snapshot round trip
+  ---
+  duration_ms: 4.891754
+  type: 'test'
+  ...
+# Subtest: money integer boundaries and actual zero vs unknown
+ok 60 - money integer boundaries and actual zero vs unknown
+  ---
+  duration_ms: 2.37844
+  type: 'test'
+  ...
+# Subtest: multi-installment accounting without double counting
+ok 61 - multi-installment accounting without double counting
+  ---
+  duration_ms: 0.498071
+  type: 'test'
+  ...
+# Subtest: overrun and unknown final cost use payment floor
+ok 62 - overrun and unknown final cost use payment floor
+  ---
+  duration_ms: 0.463109
+  type: 'test'
+  ...
+# Subtest: payments must be positive and linked, cannot exceed known actual
+ok 63 - payments must be positive and linked, cannot exceed known actual
+  ---
+  duration_ms: 0.910575
+  type: 'test'
+  ...
+# Subtest: vendor and expense deletion respects links
+ok 64 - vendor and expense deletion respects links
+  ---
+  duration_ms: 1.055714
+  type: 'test'
+  ...
+# Subtest: duplicate IDs and row cap rejected
+ok 65 - duplicate IDs and row cap rejected
+  ---
+  duration_ms: 1.521637
+  type: 'test'
+  ...
+# Subtest: task states, text and calendar validity
+ok 66 - task states, text and calendar validity
+  ---
+  duration_ms: 0.348436
+  type: 'test'
+  ...
+# Subtest: rundown chronological order and overlap warning; adjacency allowed
+ok 67 - rundown chronological order and overlap warning; adjacency allowed
+  ---
+  duration_ms: 12.139975
+  type: 'test'
+  ...
+# Subtest: rundown rejects midnight crossing, invalid time, equal end
+ok 68 - rundown rejects midnight crossing, invalid time, equal end
+  ---
+  duration_ms: 0.997675
+  type: 'test'
+  ...
+# Subtest: CSV includes all modules, preserves quoting, neutralizes formula cells, fixed width
+ok 69 - CSV includes all modules, preserves quoting, neutralizes formula cells, fixed width
+  ---
+  duration_ms: 1.236437
+  type: 'test'
+  ...
+# Subtest: API authenticated, bounded, validate both directions and conflict response
+ok 70 - API authenticated, bounded, validate both directions and conflict response
+  ---
+  duration_ms: 0.443339
+  type: 'test'
+  ...
+# Subtest: SQL owner lock, no direct access, service RPC and revision CAS
+ok 71 - SQL owner lock, no direct access, service RPC and revision CAS
+  ---
+  duration_ms: 0.220493
+  type: 'test'
+  ...
+# Subtest: UI preserves separate cloud save, actor check, private report and account integration
+ok 72 - UI preserves separate cloud save, actor check, private report and account integration
+  ---
+  duration_ms: 0.381936
+  type: 'test'
+  ...
+# Subtest: five showcase cards and local demo links
+ok 73 - five showcase cards and local demo links
+  ---
+  duration_ms: 59.091749
+  type: 'test'
+  ...
+# Subtest: CTA, navigation and accessible native opening present
+ok 74 - CTA, navigation and accessible native opening present
+  ---
+  duration_ms: 0.532855
+  type: 'test'
+  ...
+# Subtest: staging remains noindex and claims remain demo-only
+ok 75 - staging remains noindex and claims remain demo-only
+  ---
+  duration_ms: 0.23876
+  type: 'test'
+  ...
+1..75
+# tests 75
+# suites 0
+# pass 75
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 554.876498

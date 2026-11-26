@@ -1,0 +1,18 @@
+
+> amplop@0.25.0 verify:source
+> node scripts/verify-v25.mjs
+
+
+> amplop@0.25.0 prepare:demo
+> node scripts/sync-demo.mjs && node scripts/build-showcase.mjs && node scripts/sync-dashboard.mjs && node scripts/sync-cloud.mjs
+
+V14 demo synchronized: 8d78787091132a280b96fa3c0d0653e9b7cc6f310f3d5f2b5f53317a98b2c243
+Preview: secret-letter
+Preview: cinematic-romance
+Preview: wedding-editorial
+Preview: enchanted-garden
+Preview: our-story
+Deterministic regeneration: 9/9
+TypeScript syntax (not semantic checking): 32/32
+JS syntax: 28/28
+Source-only verification passed; build, semantic typecheck, SQL and real HTTP remain separate gates.

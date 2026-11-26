@@ -1,0 +1,27 @@
+{
+  "secret-letter": {
+    "label": "The Secret Letter",
+    "file": "templates/secret-letter.html",
+    "source": "AMPLOP_v5/template.html"
+  },
+  "cinematic-romance": {
+    "label": "Cinematic Romance",
+    "file": "templates/cinematic-romance.html",
+    "source": "AMPLOP_cinematic_v6/template.html"
+  },
+  "wedding-editorial": {
+    "label": "The Wedding Editorial",
+    "file": "templates/wedding-editorial.html",
+    "source": "AMPLOP_editorial_v7/template.html"
+  },
+  "enchanted-garden": {
+    "label": "The Enchanted Garden",
+    "file": "templates/enchanted-garden.html",
+    "source": "AMPLOP_garden_v8/template.html"
+  },
+  "our-story": {
+    "label": "Our Story",
+    "file": "templates/our-story.html",
+    "source": "AMPLOP_story_v9/template.html"
+  }
+}

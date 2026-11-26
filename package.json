@@ -1,0 +1,33 @@
+{
+  "name": "amplop",
+  "version": "0.25.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "prepare:demo": "node scripts/sync-demo.mjs && node scripts/build-showcase.mjs && node scripts/sync-dashboard.mjs && node scripts/sync-cloud.mjs",
+    "predev": "npm run prepare:demo",
+    "dev": "next dev",
+    "prebuild": "npm run prepare:demo",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/foundation.test.mjs tests/showcase.test.mjs tests/dashboard.test.mjs tests/cloud.test.mjs tests/payment.test.mjs tests/guests.test.mjs tests/event.test.mjs tests/planning.test.mjs tests/integration-v25.test.mjs",
+    "verify:source": "node scripts/verify-v25.mjs"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/qrcode": "^1.5.5"
+  }
+}

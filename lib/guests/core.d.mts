@@ -1,0 +1,11 @@
+export type GuestInput={name:string;seats:number};
+export type RSVP={attendance:'yes'|'no';count:number;message:string};
+export type Guest=GuestInput & {id:string;token:string;attendance:RSVP['attendance']|null;count:number|null;message:string|null};
+export const MAX_GUESTS:number;
+export function validToken(v:unknown):v is string;
+export function guestInput(v:unknown):GuestInput;
+export function rsvpInput(v:unknown,max?:number):RSVP;
+export function parseGuestsCSV(v:string):GuestInput[];
+export function exportGuestsCSV(rows:Guest[]):string;
+export function stats(rows:Guest[]):{invited:number;capacity:number;yes:number;no:number;pending:number;attending:number};
+export function escapeHTML(v:unknown):string;

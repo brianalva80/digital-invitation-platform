@@ -1,0 +1,25 @@
+/mnt/data/AMPLOP_Master_V16/reference/v14/test_regression.py:15: SyntaxWarning: invalid escape sequence '\/'
+  p.locator('#first').fill('Rafael');p.wait_for_timeout(400);p.locator('#font-choice').select_option('romantic');ready();ck('font CSS applied','Palatino' in f().locator('html').evaluate('e=>getComputedStyle(e).getPropertyValue("--amplop-display")'));ck('both wax seal monogram layers updated',p.evaluate('()=>{const b=JSON.parse(document.querySelector("#bundle").textContent);b.data.couple.first="Rafael";const h=Engine.render(b,b.data,"secret-letter");const m=h.match(/data:image\/svg\+xml;base64,[A-Za-z0-9+/=]+/g);return m.some(x=>{const v=atob(x.split(",")[1]);return (v.match(/>RC</g)||[]).length===2&&!v.includes(">AC<")})}'))
+PASS: 12 asset sizes and SHA-256 hashes
+PASS: five registered template source files
+PASS: legacy alias and V14 demo byte-identical
+
+
+
+
+
+PASS: syntax check for 5 top-level JavaScript files
+PASS: Python syntax (test/build/verification scripts)
+
+PASS: reference rebuild byte-identical to archived V14
+PASS: JSON Schema meta-validation and sample publish payload
+PASS: rejects unknown template
+PASS: rejects missing chapter
+PASS: rejects wrong timezone
+PASS: rejects invalid audio ref
+PASS: rejects invalid font index
+PASS: rejects guest injection
+PASS: rejects bad date
+PASS: YAML parse, unique operation IDs, path parameter coverage and auth annotations (17 operations)
+NOT RUN: PostgreSQL migration, actual endpoints, payment sandbox, RLS/tenant enforcement, browser/deployment. No PostgreSQL executable available. API check is structural, not full OpenAPI validation.
+NOT RUN: browser QA, web staging, native storage, database, payment, original repo audit. No production readiness claim.

@@ -1,0 +1,33 @@
+# AMPLOP V21 — Publishing & Payment System (sandbox source)
+
+Cumulative V17–V21. V14 editor, five signature designs, V19 local dashboard and V20 auth/cloud retained. No live checkout, database migration, deployment, real funds or Codex/Work was executed here. V21 has no real RSVP; the published renderer removes local demo RSVP sections. The static V18/V19 HTML and screenshots remain historical. See README_V20_ARCHIVE.md for V20 account setup and limits.
+
+## Run on isolated staging only (after approval)
+1. Follow V20 staging setup, dependency lockfile, `npm test`, `npm run typecheck`, `npm run build`. Apply V20 first, then `supabase/migrations/202611260002_amplop_v21.sql`; do not apply V15 scratch SQL. Run both SQL test files with administrative psql and ON_ERROR_STOP in disposable staging; all test fixtures roll back. They were not executed here.
+2. Configure Supabase Auth and public credentials as in V20. Set server-only `SUPABASE_SERVICE_ROLE_KEY` (legacy service-role credential for isolated project), `MIDTRANS_SANDBOX_SERVER_KEY` (SB-Mid-server-...), `AMPLOP_SANDBOX_PRICE_IDR` (explicit positive integer test amount, not approved retail pricing), `AMPLOP_SANDBOX_ENABLED=true`. Default disabled. No secrets in browser/commits/logs. No production endpoint or switching environment via user input. Use fictional data exclusively.
+3. In Midtrans **Sandbox** configure HTTPS notification URL to `/api/midtrans/notification`, finish redirect to `/account`. Provider callback must reach the route even if other staging pages require access protection. Redirect and query parameters are not proof of payment. Use only provider test methods. Restrict checkout to staging operators until release gates pass.
+4. `/account`: login and load workspace, save local draft to cloud. Preview cloud for free; load order status, confirm displayed configured amount, create checkout and follow returned sandbox link. Return to account, verify status. When settled, preview the current cloud revision, choose custom slug, explicitly publish. `/i/<slug>` serves the sandbox invitation. Edit in Studio, save cloud, preview and publish again to update same URL with no second order. Private preview needs owner bearer token and is no-store. Public URL is not private; anyone who knows/guesses it can see the invitation. No indexing is requested, not guaranteed.
+
+## Payment and publication contract
+- Server-only verified Auth identity (`getUser(token)`), owner workspace lookup, service-role SQL RPCs with explicit owner checks and locks. No client-supplied owner, order amount authority, paid flag or rendered HTML. Client echoes displayed test amount to confirm changes. Supabase service role is privileged; minimize exposure and audit route imports before deployment.
+- One order per wedding (V21 staging simplification, NOT commercial policy). Atomic claim before calling provider; concurrent clicks cannot claim twice. Checkout creation with ambiguous timeout or crash is intentionally left in `creating`, never automatically creates another order. Expired/denied/refunded order is blocked; operator reconciliation procedure is still a release gate. No new order/retry flow, refund initiation, payment expiration policy, commercial package or validity policy approved. `blocked` is sticky and disables access at the next request, even when an older paid event arrives. No reversal to paid without future reviewed recovery tooling.
+- Midtrans Snap sandbox redirect, fixed sandbox endpoints. SHA512 signature checked against exact webhook fields, then GET Status API independently confirms canonical order ID, currency IDR, exact integer amount, status code and fraud status. Conservative V21 waits for `settlement`; card `capture` is not sufficient. Pending/unknown results never grant entitlement. Canonical refund/partial refund/chargeback/deny/expire/cancel blocks. Lost notifications can be reconciled manually by owner. No automatic periodic reconciliation, rate limiting, provider webhook event journal, monitoring, retry/backoff or operator console yet. `creating` without token, provider 404, and manual recovery require staging procedure; avoid new transactions. A refund not yet observed remains active until verified, so monitoring is a production gate.
+- SQL uses the existing V20 owner workspace, new `amplop_orders` (paid state acts as sandbox entitlement), `amplop_publications` (unique immutable slug + active revision), `amplop_publication_versions` (immutable snapshots). Publish transaction checks payment, exact draft revision + JSON equality, and updates active pointer atomically. Republish may reuse entitlement; no new charge while paid. New draft is never auto-published. Raw tables and RPC are unavailable to anon/authenticated; public server reads only active paid snapshot via restricted RPC. No unpublish/delete flow; privacy, retention, refund lifecycle, slug reuse, version cleanup and account deletion must be resolved before real data. FK restrict prevents accidental billing/history cascade deletion.
+- Server render reuses exact V14 engine and trusted bundle, validates draft, removes demo RSVP, replaces guest name/id for public, applies sandbox CSP and no-store. Inline JSONB media remains V20 limitation; regex and size checks are not binary verification. No real customer photos or music until server file validation/object storage/rights reviewed. Map popup behavior and browser sandbox restrictions, native sharing, physical devices and actual HTTP headers are not verified. Invitation data is publicly downloadable once published; no claim of access restriction by noindex. V22 handles guest personalization + real RSVP.
+
+## Routes
+| Route | Behavior |
+|---|---|
+| `/account` | Existing V20 account with publishing panel |
+| `POST /api/publishing` | Authenticated status, preview, checkout, reconcile, publish actions |
+| `POST /api/midtrans/notification` | Signed webhook, canonical status lookup |
+| `GET /i/[slug]` | Active paid snapshot HTML, or 404; sandbox CSP |
+| `/api/health` | Liveness only, not readiness |
+
+## Provider references checked 26 Nov 2026
+- https://docs.midtrans.com/docs/snap-snap-integration-guide
+- https://docs.midtrans.com/docs/https-notification-webhooks
+- https://docs.midtrans.com/reference/get-transaction-status
+
+## Verification
+Run targeted `node --test tests/payment.test.mjs`, then `npm test`. See TEST_REPORT_V21.txt and RELEASE_GATES_V21.md. No additional npm dependency. No lockfile/build/typecheck, real provider or Postgres tests, or browser integration results implied by source assertions. Next V22 — Guest Management & RSVP.

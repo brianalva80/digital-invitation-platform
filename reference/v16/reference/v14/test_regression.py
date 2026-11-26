@@ -1,0 +1,33 @@
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+import json,shutil
+P=Path(__file__).parent;src=(P/'amplop-studio-v13.html').read_text();checks=[];errors=[]
+def ck(n,v):checks.append((n,bool(v)));print(('PASS ' if v else 'FAIL ')+n,flush=True)
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox','--disable-dev-shm-usage','--mute-audio']);p=b.new_page(viewport={'width':1440,'height':1000},accept_downloads=True);p.set_default_timeout(4500);p.on('pageerror',lambda e:errors.append(str(e)));p.emulate_media(reduced_motion='reduce');p.on('dialog',lambda d:d.accept())
+ def load(saved={}):
+  p.goto('about:blank');stub='<script>Object.defineProperty(window,"localStorage",{value:(()=>{let m=new Map(Object.entries('+json.dumps(saved).replace('<','\\u003c')+'));return {getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k),dump:()=>Object.fromEntries(m)}})()});</script>';p.set_content(src.replace('<script id="bundle"',stub+'<script id="bundle"',1));p.locator('.template').first.wait_for()
+ def f():return p.frame_locator('iframe')
+ def ready():f().locator('#guest').wait_for(state='attached')
+ def panel():p.locator('#experience-panel').evaluate('(e)=>e.open=true')
+ def state():return f().locator('#amplop-audio').evaluate('a=>({paused:a.paused,muted:a.muted,volume:a.volume,time:a.currentTime,error:a.error?.code})')
+ load();ready();panel();ck('default no music',f().locator('#amplop-audio').count()==0);ck('three font options',p.locator('#font-choice option').count()==3)
+ p.locator('#first').fill('Rafael');p.wait_for_timeout(400);p.locator('#font-choice').select_option('romantic');ready();ck('font CSS applied','Palatino' in f().locator('html').evaluate('e=>getComputedStyle(e).getPropertyValue("--amplop-display")'));ck('both wax seal monogram layers updated',p.evaluate('()=>{const b=JSON.parse(document.querySelector("#bundle").textContent);b.data.couple.first="Rafael";const h=Engine.render(b,b.data,"secret-letter");const m=h.match(/data:image\/svg\+xml;base64,[A-Za-z0-9+/=]+/g);return m.some(x=>{const v=atob(x.split(",")[1]);return (v.match(/>RC</g)||[]).length===2&&!v.includes(">AC<")})}'))
+ p.locator('#music-choice').select_option('ivory-nocturne');ready();ck('no autoplay on load',state()['paused']);p.locator('#music-open').check();ready();ck('opening playback enabled',f().locator('#amplop-audio').get_attribute('data-open')=='true')
+ p.locator('#music-preview').click();p.wait_for_timeout(450);ck('editor sample playback',p.locator('#studio-audio').evaluate('a=>!a.paused&&a.currentTime>0'));p.locator('#music-stop').click();ck('editor sample stop',p.locator('#studio-audio').evaluate('a=>a.paused'))
+ for slug in ['secret-letter','cinematic-romance','wedding-editorial','enchanted-garden','our-story']:
+  p.locator(f'[data-slug="{slug}"]').click();ready();ck(slug+' retains data and music','Rafael' in f().locator('#hero').inner_text() and state()['paused'] and p.locator('#music-choice').input_value()=='ivory-nocturne');ck(slug+' font options',p.locator('#font-choice option').count()==3)
+  locator=f().locator('#play' if slug=='cinematic-romance' else '#open');p.locator('#stage').scroll_into_view_if_needed();r=locator.evaluate('e=>{const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}}');rect=p.locator('iframe').bounding_box();p.mouse.click(rect['x']+r['x']*rect['width']/390,rect['y']+r['y']*rect['height']/844);p.wait_for_timeout(750);ck(slug+' opens and starts audio',not f().locator('#gate').is_visible() and not state()['paused'] and state()['time']>0)
+  f().locator('[data-music-mute]').evaluate('b=>b.click()');ck(slug+' mute',state()['muted']);f().locator('[data-music-play]').evaluate('b=>b.click()');p.wait_for_timeout(300);ck(slug+' pause',state()['paused'])
+ p.locator('[data-slug="secret-letter"]').click();ready();ck('per-template font remembered',p.locator('#font-choice').input_value()=='romantic')
+ for t in ['golden-hour','garden-waltz']:
+  p.locator('#music-choice').select_option(t);ready();ck(t+' bundled track',f().locator('#amplop-audio').get_attribute('src')==p.evaluate('t=>JSON.parse(document.querySelector("#bundle").textContent).assets[t+".mp3"]',t))
+ p.locator('#music-file').set_input_files(str(P/'assets/ivory-nocturne.mp3'));p.wait_for_function('document.querySelector("#music-choice").value==="custom"',timeout=7000);ready();ck('custom audio loaded',f().locator('#amplop-audio').get_attribute('src').startswith('data:audio/mpeg;base64,'));p.locator('#music-volume').fill('0.55');p.locator('#music-volume').dispatch_event('change');ready();ck('volume propagated',f().locator('[data-music-volume]').input_value()=='0.55')
+ p.locator('#save').click();saved=p.evaluate('localStorage.dump()');load(saved);ready();panel();ck('draft restores preferences',p.locator('#font-choice').input_value()=='romantic' and p.locator('#music-choice').input_value()=='custom' and p.locator('#music-volume').input_value()=='0.55')
+ with p.expect_download() as dl:p.locator('#export').click()
+ exported=Path(dl.value.path()).read_text();ck('export includes audio and font','id="amplop-audio"' in exported and 'data:audio/mpeg;base64,' in exported and 'Palatino' in exported)
+ p.locator('#remove-music').click();ready();ck('remove custom music',f().locator('#amplop-audio').count()==0);p.locator('#music-choice').select_option('ivory-nocturne');ready();p.locator('#music-open').uncheck();ready();ck('opt out opening audio',f().locator('#amplop-audio').get_attribute('data-open')=='false');p.locator('#experience-panel').scroll_into_view_if_needed();p.screenshot(path=str(P/'editor-audio-desktop.png'))
+ for w,h in [(320,568),(390,844),(768,1024),(1440,900)]:
+  p.set_viewport_size({'width':w,'height':h});p.wait_for_timeout(100);ck('editor no overflow '+str(w),p.evaluate('document.documentElement.scrollWidth<=innerWidth'))
+ p.locator('#reset').click();ready();ck('reset removes music and font setting',p.locator('#music-choice').input_value()=='none' and p.locator('#font-choice').input_value()=='classic' and f().locator('#amplop-audio').count()==0);ck('no uncaught JS errors',not errors);b.close()
+report='V12 Chromium in-memory, reduced motion, storage test double, muted launch (media playback time checked; acoustic quality not auditioned).\n'+'\n'.join(('PASS ' if v else 'FAIL ')+n for n,v in checks)+f'\n{sum(v for n,v in checks)} passed / {sum(not v for n,v in checks)} failed.\nErrors: {errors}\nNot tested: real storage, Safari, actual speakers, iOS volume, production deployment, Lighthouse, backend.\n';(P/'REGRESSION_V12.txt').write_text(report);print(report)

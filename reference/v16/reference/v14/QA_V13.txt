@@ -1,0 +1,76 @@
+V13: Chromium in-memory; full-motion standalone + reduced-motion editor; native HTTP blocked; audio muted by test runner; no backend.
+PASS secret-letter XSS escaped and asset-like text preserved
+PASS secret-letter Unicode text renders
+PASS cinematic-romance XSS escaped and asset-like text preserved
+PASS cinematic-romance Unicode text renders
+PASS wedding-editorial XSS escaped and asset-like text preserved
+PASS wedding-editorial Unicode text renders
+PASS enchanted-garden XSS escaped and asset-like text preserved
+PASS enchanted-garden Unicode text renders
+PASS our-story XSS escaped and asset-like text preserved
+PASS our-story Unicode text renders
+PASS invalid calendar rejected
+PASS reversed time rejected
+PASS numeric ID rejected
+PASS early year rejected
+PASS empty name rejected
+PASS long name rejected
+PASS invalid image path rejected
+PASS invalid guest ID rejected
+PASS 20 template switches keep one iframe and data
+PASS corrupt MP3 rejected without replacing track
+PASS oversized audio rejected
+PASS reset cancels pending photo upload
+PASS secret-letter audio controls hidden while gate closed
+PASS secret-letter full motion opens
+PASS secret-letter audio after open
+PASS secret-letter pause survives volume change during fade
+PASS secret-letter replay stops audio
+PASS secret-letter skip opens
+PASS secret-letter layout 320
+PASS secret-letter layout 390
+PASS secret-letter layout 768
+PASS secret-letter layout 1440
+PASS cinematic-romance audio controls hidden while gate closed
+PASS cinematic-romance full motion opens
+PASS cinematic-romance audio after open
+PASS cinematic-romance pause survives volume change during fade
+PASS cinematic-romance replay stops audio
+PASS cinematic-romance skip opens
+PASS cinematic-romance layout 320
+PASS cinematic-romance layout 390
+PASS cinematic-romance layout 768
+PASS cinematic-romance layout 1440
+PASS wedding-editorial audio controls hidden while gate closed
+PASS wedding-editorial full motion opens
+PASS wedding-editorial audio after open
+PASS wedding-editorial pause survives volume change during fade
+PASS wedding-editorial replay stops audio
+PASS wedding-editorial skip opens
+PASS wedding-editorial layout 320
+PASS wedding-editorial layout 390
+PASS wedding-editorial layout 768
+PASS wedding-editorial layout 1440
+PASS enchanted-garden audio controls hidden while gate closed
+PASS enchanted-garden full motion opens
+PASS enchanted-garden audio after open
+PASS enchanted-garden pause survives volume change during fade
+PASS enchanted-garden replay stops audio
+PASS enchanted-garden skip opens
+PASS enchanted-garden layout 320
+PASS enchanted-garden layout 390
+PASS enchanted-garden layout 768
+PASS enchanted-garden layout 1440
+PASS our-story audio controls hidden while gate closed
+PASS our-story full motion opens
+PASS our-story audio after open
+PASS our-story pause survives volume change during fade
+PASS our-story replay stops audio
+PASS our-story skip opens
+PASS our-story layout 320
+PASS our-story layout 390
+PASS our-story layout 768
+PASS our-story layout 1440
+PASS no uncaught browser errors
+73 passed / 0 failed.
+Errors: []

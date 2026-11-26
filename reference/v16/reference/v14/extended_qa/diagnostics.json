@@ -1,0 +1,91 @@
+{
+  "heap_diagnostic": {
+    "before": {
+      "Documents": 3,
+      "JSEventListeners": 59,
+      "Nodes": 740,
+      "JSHeapUsedSize": 4176724
+    },
+    "after_30_switches": {
+      "Documents": 3,
+      "JSEventListeners": 60,
+      "Nodes": 749,
+      "JSHeapUsedSize": 5237944
+    },
+    "iframe_count": 1,
+    "note": "Parent renderer only; not a full memory leak profile."
+  },
+  "dynamic_cover": {
+    "secret-letter": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": true,
+      "new_date_visible": false
+    },
+    "cinematic-romance": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": true,
+      "new_date_visible": true
+    },
+    "wedding-editorial": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": true,
+      "new_date_visible": true
+    },
+    "enchanted-garden": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": false,
+      "new_date_visible": false
+    },
+    "our-story": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": false,
+      "new_date_visible": false
+    }
+  },
+  "contrast_sample": {
+    "secret-letter": {
+      "checked": 15,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "cinematic-romance": {
+      "checked": 43,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "wedding-editorial": {
+      "checked": 33,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "enchanted-garden": {
+      "checked": 42,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "our-story": {
+      "checked": 38,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    }
+  },
+  "audio_analysis": {
+    "garden-waltz.mp3": {
+      "mean_volume": "-13.2 dB",
+      "max_volume": "-3.3 dB"
+    },
+    "golden-hour.mp3": {
+      "mean_volume": "-13.8 dB",
+      "max_volume": "-3.3 dB"
+    },
+    "ivory-nocturne.mp3": {
+      "mean_volume": "-14.0 dB",
+      "max_volume": "-3.3 dB"
+    }
+  }
+}

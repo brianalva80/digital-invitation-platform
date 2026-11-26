@@ -1,0 +1,22 @@
+# AMPLOP V14 — design & asset review candidate
+Status: review candidate, NOT owner-approved design freeze. V13.1 is the verified baseline; V14 is a small visual/audio control patch with 61 focused assertions passing. No production deployment or existing repository modification. Preserve V13.1 QA evidence as historical, do not claim all 179 tests reran on V14.
+
+## Visual audit (actual Chromium mobile screenshots, 390 × 844)
+Compared all five opened hero compositions side by side with the same fictional couple. See COLLECTION_V14.jpg and per-template review/expanded screenshots. The recurring V13.1 white audio bar obstructed the lower image/text and looked disconnected from the theme. V14 changes the control to a compact, theme-colored play/pause and Audio toggle, with mute and volume revealed on request. 44px button min height/width; keyboard Escape collapses and restores focus. Hidden/inert during opening, resets on replay. A fixed panel still overlays a small part of the viewport; verify with real phones and at the bottom of sections. No change to signature timing or underlying gallery/story logic.
+
+| Template | Keep | Review during staging |
+|---|---|---|
+| Secret Letter | ivory paper, burgundy wax, letter-to-screen transition, botanical engraving | scrutinize wax texture and camera handoff; name fit with final fonts |
+| Cinematic Romance | full-bleed photographic hero, dark slate and champagne, scroll-controlled scenes | readability over arbitrary user photos, dark overlay, actual low-end motion; video scrubbing not required for this release |
+| Wedding Editorial | monochrome imagery, folio rules, large serif, cover hinge and magazine spread | vertical reading rhythm, photo crops and page transition with final font |
+| Enchanted Garden | sage, arch, vector botanical layers and gate | distinguish foreground depth without obscuring labels; preserve static fallback |
+| Our Story | terracotta, cream paper, instant prints, memory board and hidden notes | real touch drag plus button alternative; avoid photo overlaps hiding actions |
+
+## Typography target (proposed, not installed)
+Use TYPOGRAPHY_PLAN.csv. Candidate source: https://fonts.google.com/ and https://github.com/google/fonts. Fetch the exact licensed webfont versions in the project environment; record upstream URL, version, SHA256 and license/copyright notice. Retain current local stacks until the owner has reviewed the actual font rendering. Host WOFF2 locally for production, preload only necessary display font, font-display swap; test layout shift and glyph coverage including non-Latin names. Do not ship container fonts. Maintain selectable curated options and map persisted preset IDs without migration data loss. Body target 16–18px; labels decorative only 10–12px, actions minimum 44px. Verify contrast over photography and at each accent.
+
+## Asset review
+ASSET_REVIEW_V14.csv is a measured inventory (hashes and bytes) with provenance carried from earlier handoffs, not independent legal verification. Three fictional AI demo photographs are not real clients. Preserve the existing original SVGs/texture; production customer photographs replace demo data. Do not ship private client uploads into public preview or demo exports. Retain editable slots, crop/focal-point controls as planned; production mobile hero target <=300 KB, lower-fold <=200 KB per image, initial transfer <=800 KB excluding audio (targets, not current network measurements). Use responsive images, lazy load noncritical assets, declare dimensions. Three synthetic demo tracks can remain test fixtures; audition and approve or replace before catalog release. Upload rights confirmation, proposed 15 MB production limit, backend validation/transcode/storage remain future; 2 MB prototype unchanged. No full-length soundtrack or artist approval implied.
+
+## Design decision / approval
+Propose freeze of layout hierarchy, colors, signature interactions, data slots, audio UX and copy style after owner review. Fonts, customer media, real-device testing and staging remain open. Do not redesign based on agent preferences. Accessibility, security and functional bug fixes remain allowed even after freeze; log any visual deviation. No production freeze until owner approval and staging gates. Keep all five themes distinct; preserve native scroll, skip, replay, reduced-motion, no music until explicit user gesture. Do not add WebGL/GSAP or other dependencies just to rewrite working code; assess original repo first. V14 retains standalone prototype architecture; not SaaS.

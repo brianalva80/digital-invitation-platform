@@ -1,0 +1,26 @@
+{
+  "passed": 20,
+  "checks": [
+    "cinematic-romance no RSVP form",
+    "cinematic-romance guest generic",
+    "cinematic-romance audio element",
+    "cinematic-romance no pageerror",
+    "enchanted-garden no RSVP form",
+    "enchanted-garden guest generic",
+    "enchanted-garden audio element",
+    "enchanted-garden no pageerror",
+    "our-story no RSVP form",
+    "our-story guest generic",
+    "our-story audio element",
+    "our-story no pageerror",
+    "secret-letter no RSVP form",
+    "secret-letter guest generic",
+    "secret-letter audio element",
+    "secret-letter no pageerror",
+    "wedding-editorial no RSVP form",
+    "wedding-editorial guest generic",
+    "wedding-editorial audio element",
+    "wedding-editorial no pageerror"
+  ],
+  "scope": "in-memory iframe, reduced motion, no HTTP"
+}

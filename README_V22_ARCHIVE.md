@@ -1,0 +1,21 @@
+# AMPLOP V22 — Guest Management & RSVP
+Cumulative V17–V22 source candidate; not production-ready. V21 README archived in README_V21_ARCHIVE.md. No Codex/Work, no dependency additions, no provisioning or payment calls.
+
+## Run in isolated staging
+1. Read AGENTS.md and RELEASE_GATES_V20/V21/V22.md. Use fictional data only. Install patched compatible dependencies and create lockfile in Codex when authorized. `npm run prepare:demo`, `npm test`, `npm run typecheck`, `npm run build`.
+2. Configure .env.example as described in archived V20/V21 README. Apply migrations 202611260001, 002, 003 in order to a disposable Supabase project. Never run V15 scratch SQL. Execute the three rollback-only SQL fixture suites as postgres with ON_ERROR_STOP=1. Verify auth email redirect allowlists, actual RLS and service-only RPC access.
+3. Register/login at /account, create workspace, save cloud draft. V21 sandbox checkout and publication must be successfully tested before guest routes work. Configure sandbox explicitly, no live transactions.
+4. In the same /account page, load Guest Management. Add/edit/delete guest units, allocate 1–10 seats, search, import CSV, rotate link, export RSVP CSV. Open /g/<64-hex-token> only after paid publication. RSVP form lives in outer page, five designs remain in opaque sandbox iframe. Verify actual POST with configured trusted HTTPS origin; check owner list after refresh.
+5. Run `python tests/review_guests.py` with Playwright + Chromium for in-memory browser fixtures. It tests the rendered shell and each personalized V14 design, not the HTTP server or POST. `npm test` includes all 47 local unit/static checks.
+
+## Data / endpoints
+- `amplop_guests`: stable guest UUID, wedding ID, private bearer token, name, seats. One invitation per row; identical names allowed. Limit 500 rows per workspace, 100 JS UTF-16 code units per name (V14 renderer compatibility), 1–10 seats; staging technical limits, not pricing.
+- `amplop_rsvps`: one response per guest; yes requires 1..allocated seats, no requires 0; optional message up to 500 chars. Repeated submission replaces prior response. Deletion cascades. Link rotation preserves guest ID and RSVP while invalidating old token. V23 can reference UUID, not bearer token, for check-in.
+- POST `/api/guests`: existing verified bearer session and owner lookup, service-only SQL RPC also checks owner; actions list/add/edit/delete/rotate/import. Import validated in full and committed atomically. No direct client table access. Server uses existing sandbox switch, same as V21.
+- GET `/g/[token]`: personalized shell, private no-store/no-referrer/noindex; iframe `/g/[token]/invitation` uses active paid snapshot and original renderer with explicit guest name. Generic `/i/[slug]` remains unchanged, without RSVP. POST `/g/[token]`: bounded form, same-origin check, validates seat count and SQL rechecks under locks; 303 redirect after DB success. No RSVP demo form on published templates.
+- Tokens are two random UUIDs without hyphens (64 hex, 244 random bits), stored server-side in plaintext for owner copy/rotation, not exported in CSV. Anyone with personal link may view name/response and edit RSVP; not identity proof. No public guestbook wall; owner views messages, bearer sees own message. Token log redaction and rate limits mandatory before production.
+- CSV import exact header `name,seats`, UTF-8/BOM, quoted fields, CRLF supported. Import appends, no implicit dedupe. Export columns name,seats,attendance,count,message with quote and spreadsheet formula protection. Export is report, not direct import format. Example in `examples/guests.csv`.
+- Guest dashboard currently lives in authenticated /account, not the V19 local demo. Refresh manually; no real-time subscription. Guest shell is outer scroll page + nested iframe; needs physical device QA. Check-in, QR, PIN, lucky wheel and planner remain V23/V24.
+
+## Evidence
+47/47 Node tests (includes 11 V22), 30/30 Chromium fixture checks, TS syntax checks in TEST_REPORT_V22.txt. SQL fixture and integration tests not executed. Next build/semantic checks still blocked by absent installed deps; no actual DB/provider credentials. No production readiness claim. See RELEASE_GATES_V22.md.

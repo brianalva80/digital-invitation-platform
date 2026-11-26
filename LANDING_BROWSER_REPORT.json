@@ -1,0 +1,227 @@
+[
+  {
+    "viewport": 320,
+    "check": "no horizontal overflow",
+    "pass": true
+  },
+  {
+    "viewport": 320,
+    "check": "five cards",
+    "pass": true
+  },
+  {
+    "viewport": 320,
+    "check": "all images decoded",
+    "pass": true
+  },
+  {
+    "viewport": 320,
+    "check": "letter open",
+    "pass": true
+  },
+  {
+    "viewport": 320,
+    "check": "keyboard close",
+    "pass": true
+  },
+  {
+    "viewport": 320,
+    "check": "collection navigation",
+    "pass": true
+  },
+  {
+    "viewport": 320,
+    "check": "no JS error",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "no horizontal overflow",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "five cards",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "all images decoded",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "letter open",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "keyboard close",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "collection navigation",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "no JS error",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "no horizontal overflow",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "five cards",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "all images decoded",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "letter open",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "keyboard close",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "collection navigation",
+    "pass": true
+  },
+  {
+    "viewport": 768,
+    "check": "no JS error",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "no horizontal overflow",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "five cards",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "all images decoded",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "letter open",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "keyboard close",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "collection navigation",
+    "pass": true
+  },
+  {
+    "viewport": 1440,
+    "check": "no JS error",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "cinematic-romance generated demo loads",
+    "pass": true,
+    "button_samples": [
+      "Putar cerita",
+      "Lewati intro",
+      "I",
+      "II",
+      "III"
+    ]
+  },
+  {
+    "viewport": 390,
+    "check": "cinematic-romance reduced-motion opening",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "enchanted-garden generated demo loads",
+    "pass": true,
+    "button_samples": [
+      "Masuk ke taman \u00a0 \u2192",
+      "Lewati animasi",
+      "Simpan kalender",
+      "Simpan kalender",
+      "01 \u00b7 The beginning"
+    ]
+  },
+  {
+    "viewport": 390,
+    "check": "enchanted-garden reduced-motion opening",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "our-story generated demo loads",
+    "pass": true,
+    "button_samples": [
+      "Buka album",
+      "Lewati animasi",
+      "\u283f Drag",
+      "Buka catatan \u2661",
+      "\u2190 Lebih awal"
+    ]
+  },
+  {
+    "viewport": 390,
+    "check": "our-story reduced-motion opening",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "secret-letter generated demo loads",
+    "pass": true,
+    "button_samples": [
+      "",
+      "Buka undangan \u2197",
+      "Lewati animasi",
+      "Simpan ke kalender",
+      "Simpan ke kalender"
+    ]
+  },
+  {
+    "viewport": 390,
+    "check": "secret-letter reduced-motion opening",
+    "pass": true
+  },
+  {
+    "viewport": 390,
+    "check": "wedding-editorial generated demo loads",
+    "pass": true,
+    "button_samples": [
+      "Buka majalah \u2197",
+      "Lewati animasi",
+      "Simpan ke kalender",
+      "Simpan ke kalender",
+      "\u2190"
+    ]
+  },
+  {
+    "viewport": 390,
+    "check": "wedding-editorial reduced-motion opening",
+    "pass": true
+  }
+]

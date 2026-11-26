@@ -1,0 +1,14 @@
+AMPLOP V25 local audit — 26 November 2026
+PASS  V24 baseline SHA-256 manifest and 75/75 baseline Node tests
+PASS  7/7 new V25 integration/contract tests; total Node 82/82
+PASS  Chromium in scratch copy (in-memory/snapshot/fixture): landing 38, dashboard 40, generic publication 20, guest RSVP 30, PIN/ticket 36, planning layout 120; total 284/284
+PASS  9/9 generated assets byte-identical after npm run prepare:demo
+PASS  32/32 TypeScript syntax, 28/28 JS syntax (not semantic type checking)
+PASS  immutable V16 reference manifest verified by Node foundation tests
+PASS  static RPC mapping and RLS declaration for all 12 application tables; six migrations in order
+OPEN  dependency install and lockfile (Next, React, Supabase, qrcode absent)
+OPEN  Next build, semantic typecheck, actual HTTP route tracing and browser hydration
+OPEN  all 6 SQL migration/test suites, concurrency and actual Auth/tenant isolation
+OPEN  actual Midtrans sandbox checkout, webhooks, reconciliation
+OPEN  camera/QR encoding, physical devices, native storage, Lighthouse and production security
+No external services provisioned, no real payments, no Codex or ChatGPT Work. Raw re-run evidence under audit/v25; historical evidence files retained. See RELEASE_GATES_V25.md for acceptance criteria.

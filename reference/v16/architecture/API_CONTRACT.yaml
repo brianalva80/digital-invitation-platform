@@ -1,0 +1,725 @@
+openapi: 3.1.0
+info:
+  title: AMPLOP V15 proposed API contract
+  version: 0.15.0
+  description: Planning only; no live endpoints. Response models and precise provider
+    payload mapping remain integration work. Cookie-auth routes require CSRF protection.
+servers:
+- url: /api/v1
+paths:
+  /weddings:
+    post:
+      operationId: createWedding
+      summary: Create wedding and initial draft
+      x-authorization: owner-session
+      responses:
+        '201':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  minLength: 1
+                  maxLength: 80
+              required:
+              - slug
+              additionalProperties: false
+  /weddings/{weddingId}/draft:
+    get:
+      operationId: readDraft
+      summary: Read private draft and revision
+      x-authorization: member-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    put:
+      operationId: saveDraft
+      summary: CAS save partial draft; 409 if revision stale
+      x-authorization: editor-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expectedRevision:
+                  type: integer
+                  minimum: 1
+                content:
+                  type: object
+              required:
+              - expectedRevision
+              - content
+              additionalProperties: false
+  /weddings/{weddingId}/assets/intents:
+    post:
+      operationId: createUploadIntent
+      summary: Constrained private upload intent
+      x-authorization: editor-session
+      responses:
+        '201':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kind:
+                  enum:
+                  - photo
+                  - audio
+                  - video
+                bytes:
+                  type: integer
+                  minimum: 1
+                mime:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                rightsAttested:
+                  const: true
+              required:
+              - kind
+              - bytes
+              - mime
+              - rightsAttested
+              additionalProperties: false
+  /weddings/{weddingId}/assets/{assetId}/complete:
+    post:
+      operationId: completeUpload
+      summary: Enqueue server validation; never mark ready from client
+      x-authorization: editor-session
+      responses:
+        '202':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /weddings/{weddingId}/assets/{assetId}:
+    get:
+      operationId: readAssetStatus
+      summary: Read asset processing state
+      x-authorization: member-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /weddings/{weddingId}/orders:
+    post:
+      operationId: createOrder
+      summary: Server priced sandbox order
+      x-authorization: owner-session
+      responses:
+        '201':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                idempotencyKey:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+              required:
+              - idempotencyKey
+              additionalProperties: false
+  /weddings/{weddingId}/orders/{orderId}:
+    get:
+      operationId: readOrder
+      summary: Read normalized payment status
+      x-authorization: owner-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: orderId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /payments/midtrans/webhook:
+    post:
+      operationId: paymentWebhook
+      summary: Verify signature plus provider status; atomic idempotent payment update
+      x-authorization: provider-signature
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+  /weddings/{weddingId}/publish:
+    post:
+      operationId: publishWedding
+      summary: Lock and publish validated revision if entitled
+      x-authorization: owner-session
+      responses:
+        '201':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expectedRevision:
+                  type: integer
+                  minimum: 1
+              required:
+              - expectedRevision
+              additionalProperties: false
+  /weddings/{weddingId}/unpublish:
+    post:
+      operationId: unpublishWedding
+      summary: Remove active publication access
+      x-authorization: owner-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /weddings/{weddingId}/guests:
+    get:
+      operationId: listGuests
+      summary: Private guest list; paginate
+      x-authorization: editor-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    post:
+      operationId: createGuest
+      summary: Create guest with party limit
+      x-authorization: editor-session
+      responses:
+        '201':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                partyLimit:
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+              required:
+              - name
+              - partyLimit
+              additionalProperties: false
+  /weddings/{weddingId}/guests/{guestId}/rotate-token:
+    post:
+      operationId: rotateGuestToken
+      summary: Issue raw token once; invalidate old token
+      x-authorization: editor-session
+      responses:
+        '201':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - ownerCookie: []
+      parameters:
+      - name: weddingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: guestId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /invitations/{slug}/session:
+    post:
+      operationId: exchangeGuestToken
+      summary: Exchange opaque token for scoped cookie
+      x-authorization: public-rate-limited
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  minLength: 1
+                  maxLength: 200
+              required:
+              - token
+              additionalProperties: false
+  /invitations/{slug}:
+    get:
+      operationId: getPublication
+      summary: Return allowlisted publication projection only
+      x-authorization: public-or-guest-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+  /invitations/{slug}/rsvp:
+    put:
+      operationId: saveRsvp
+      summary: Upsert RSVP for session guest only; validate deadline and party limit
+      x-authorization: guest-session
+      responses:
+        '200':
+          description: Success; response fields finalized after repo audit
+        '400':
+          description: Malformed
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '409':
+          description: Conflict
+        '413':
+          description: Too large
+        '422':
+          description: Validation error
+        '429':
+          description: Rate limited
+      security:
+      - guestCookie: []
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attendance:
+                  enum:
+                  - 'yes'
+                  - 'no'
+                partyCount:
+                  type: integer
+                  minimum: 0
+                  maximum: 100
+                message:
+                  type: string
+                  maxLength: 500
+              required:
+              - attendance
+              - partyCount
+              - message
+              additionalProperties: false
+components:
+  securitySchemes:
+    ownerCookie:
+      type: apiKey
+      in: cookie
+      name: amplop_session
+    guestCookie:
+      type: apiKey
+      in: cookie
+      name: amplop_guest

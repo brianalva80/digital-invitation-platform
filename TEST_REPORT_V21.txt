@@ -1,0 +1,239 @@
+AMPLOP V21 — actual local test results
+
+Targeted node --test tests/payment.test.mjs: 12 passed, 0 failed. Includes pure verification/classification, five actual renderer outputs and static SQL/API source assertions.
+npm test: 36 passed, 0 failed (includes 12 V21 tests; do not add these counts).
+TypeScript transpileModule syntax: 9/9 changed TS/TSX files, no syntax errors. Not semantic typecheck.
+Chromium in-memory iframe: 20/20 assertions; skip opening in reduced-motion mode for five themes; no RSVP form; generic guest; audio element present (not actual playback); no pageerror. Not actual HTTP headers or Next route.
+No app dependencies installed, no PostgreSQL executable, no Supabase/Midtrans credentials or calls. No Codex or Work.
+SQL fixtures prepared, NOT executed. Next.js build/typecheck, provider sandbox, actual DB transaction concurrency, security, native storage, and browser staging integration NOT verified.
+
+
+> amplop@0.21.0 test
+> node --test tests/foundation.test.mjs tests/showcase.test.mjs tests/dashboard.test.mjs tests/cloud.test.mjs tests/payment.test.mjs
+
+TAP version 13
+# Subtest: exact original renderer source reused
+ok 1 - exact original renderer source reused
+  ---
+  duration_ms: 1.310309
+  type: 'test'
+  ...
+# Subtest: all five templates preserve draft content through local/cloud roundtrip
+ok 2 - all five templates preserve draft content through local/cloud roundtrip
+  ---
+  duration_ms: 3.96078
+  type: 'test'
+  ...
+# Subtest: actual WebP and original MP3 survive unchanged
+ok 3 - actual WebP and original MP3 survive unchanged
+  ---
+  duration_ms: 2.776813
+  type: 'test'
+  ...
+# Subtest: legacy draft missing optional V12 fields is normalized without deleting content
+ok 4 - legacy draft missing optional V12 fields is normalized without deleting content
+  ---
+  duration_ms: 0.270419
+  type: 'test'
+  ...
+# Subtest: primary draft takes precedence; malformed primary is not silently replaced
+ok 5 - primary draft takes precedence; malformed primary is not silently replaced
+  ---
+  duration_ms: 0.846328
+  type: 'test'
+  ...
+# Subtest: unsupported fields, template, colors and typography rejected
+ok 6 - unsupported fields, template, colors and typography rejected
+  ---
+  duration_ms: 0.604323
+  type: 'test'
+  ...
+# Subtest: unsafe photo/audio sources, missing custom audio and oversized upload rejected
+ok 7 - unsafe photo/audio sources, missing custom audio and oversized upload rejected
+  ---
+  duration_ms: 3.413945
+  type: 'test'
+  ...
+# Subtest: invalid event schedule, schema and timezone rejected using V14 validator
+ok 8 - invalid event schedule, schema and timezone rejected using V14 validator
+  ---
+  duration_ms: 0.428076
+  type: 'test'
+  ...
+# Subtest: invalid restore does not overwrite previous local draft
+ok 9 - invalid restore does not overwrite previous local draft
+  ---
+  duration_ms: 0.462788
+  type: 'test'
+  ...
+# Subtest: storage quota error propagates, no clear or fallback mutation
+ok 10 - storage quota error propagates, no clear or fallback mutation
+  ---
+  duration_ms: 0.653346
+  type: 'test'
+  ...
+# Subtest: clear affects both local draft keys only
+ok 11 - clear affects both local draft keys only
+  ---
+  duration_ms: 0.269186
+  type: 'test'
+  ...
+# Subtest: migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+ok 12 - migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+  ---
+  duration_ms: 0.375617
+  type: 'test'
+  ...
+# Subtest: cloud UI separates demo, explicit confirmation, conflict and auth flows
+ok 13 - cloud UI separates demo, explicit confirmation, conflict and auth flows
+  ---
+  duration_ms: 0.43026
+  type: 'test'
+  ...
+# Subtest: dashboard uses unchanged V14 engine and editor storage keys
+ok 14 - dashboard uses unchanged V14 engine and editor storage keys
+  ---
+  duration_ms: 2.54325
+  type: 'test'
+  ...
+# Subtest: dashboard route and landing CTA integrated; one authorized auth dependency
+ok 15 - dashboard route and landing CTA integrated; one authorized auth dependency
+  ---
+  duration_ms: 1.020952
+  type: 'test'
+  ...
+# Subtest: dashboard has sandboxed preview and transparent planned module states
+ok 16 - dashboard has sandboxed preview and transparent planned module states
+  ---
+  duration_ms: 0.613437
+  type: 'test'
+  ...
+# Subtest: exactly five original template keys and source files
+ok 17 - exactly five original template keys and source files
+  ---
+  duration_ms: 1.992097
+  type: 'test'
+  ...
+# Subtest: original V16 manifest integrity
+ok 18 - original V16 manifest integrity
+  ---
+  duration_ms: 14.571492
+  type: 'test'
+  ...
+# Subtest: public preview byte-identical to V14 source
+ok 19 - public preview byte-identical to V14 source
+  ---
+  duration_ms: 1.030266
+  type: 'test'
+  ...
+# Subtest: foundation route files and runtime scripts present
+ok 20 - foundation route files and runtime scripts present
+  ---
+  duration_ms: 0.39027
+  type: 'test'
+  ...
+# Subtest: no local credentials and migration source present
+ok 21 - no local credentials and migration source present
+  ---
+  duration_ms: 0.189516
+  type: 'test'
+  ...
+# Subtest: server price is explicit, bounded integer IDR, no fallback
+ok 22 - server price is explicit, bounded integer IDR, no fallback
+  ---
+  duration_ms: 1.136747
+  type: 'test'
+  ...
+# Subtest: valid order UUID and custom slug allowlist
+ok 23 - valid order UUID and custom slug allowlist
+  ---
+  duration_ms: 0.314565
+  type: 'test'
+  ...
+# Subtest: checkout URL restricted to Midtrans sandbox host and Snap path
+ok 24 - checkout URL restricted to Midtrans sandbox host and Snap path
+  ---
+  duration_ms: 0.347074
+  type: 'test'
+  ...
+# Subtest: notification SHA512 verifies exact fields; tampering and forged signature rejected
+ok 25 - notification SHA512 verifies exact fields; tampering and forged signature rejected
+  ---
+  duration_ms: 0.70232
+  type: 'test'
+  ...
+# Subtest: canonical settlement with exact currency, amount and ID only
+ok 26 - canonical settlement with exact currency, amount and ID only
+  ---
+  duration_ms: 0.497832
+  type: 'test'
+  ...
+# Subtest: capture, pending, challenge, unrecognized or unsuccessful status never unlock
+ok 27 - capture, pending, challenge, unrecognized or unsuccessful status never unlock
+  ---
+  duration_ms: 0.12555
+  type: 'test'
+  ...
+# Subtest: refund/chargeback/expiry and fraud deny classify as blocked
+ok 28 - refund/chargeback/expiry and fraud deny classify as blocked
+  ---
+  duration_ms: 0.160843
+  type: 'test'
+  ...
+# Subtest: private and public render all five actual V14 templates, no form, guest anonymized only publicly
+ok 29 - private and public render all five actual V14 templates, no form, guest anonymized only publicly
+  ---
+  duration_ms: 231.953413
+  type: 'test'
+  ...
+# Subtest: public render rejects invalid cloud payload and escapes user content
+ok 30 - public render rejects invalid cloud payload and escapes user content
+  ---
+  duration_ms: 12.361285
+  type: 'test'
+  ...
+# Subtest: custom media and selected theme retained in server-rendered publication
+ok 31 - custom media and selected theme retained in server-rendered publication
+  ---
+  duration_ms: 11.209235
+  type: 'test'
+  ...
+# Subtest: SQL source has unique order, claim, owner check, sticky block and atomic revision publication
+ok 32 - SQL source has unique order, claim, owner check, sticky block and atomic revision publication
+  ---
+  duration_ms: 0.789362
+  type: 'test'
+  ...
+# Subtest: API source checks authenticated identity, canonical provider verification, private no-store and public paid-only RPC
+ok 33 - API source checks authenticated identity, canonical provider verification, private no-store and public paid-only RPC
+  ---
+  duration_ms: 0.397691
+  type: 'test'
+  ...
+# Subtest: five showcase cards and local demo links
+ok 34 - five showcase cards and local demo links
+  ---
+  duration_ms: 36.82986
+  type: 'test'
+  ...
+# Subtest: CTA, navigation and accessible native opening present
+ok 35 - CTA, navigation and accessible native opening present
+  ---
+  duration_ms: 0.601809
+  type: 'test'
+  ...
+# Subtest: staging remains noindex and claims remain demo-only
+ok 36 - staging remains noindex and claims remain demo-only
+  ---
+  duration_ms: 0.233533
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 392.510668

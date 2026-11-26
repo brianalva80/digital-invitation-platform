@@ -1,0 +1,6 @@
+# Reference tooling only, not application runtime dependencies.
+# Use a dedicated Python environment and record resolved versions in M1.
+jsonschema
+PyYAML
+playwright
+Pillow

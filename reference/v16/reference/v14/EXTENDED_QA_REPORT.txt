@@ -1,0 +1,204 @@
+AMPLOP V13.1 — extended QA report
+Target: standalone Chromium prototype. Browser navigation to HTTP and file URLs blocked; in-memory documents used.
+Baseline: {'PASS': 47, 'FAIL': 11, 'BLOCKED': 3}
+After fix: {'PASS': 58, 'FAIL': 0, 'BLOCKED': 3}
+Existing regressions rerun: 48/48 + 73/73. Additional executable assertions: 58/58. Total 179 passed, 0 failed across three suites. Three blocked entries in extended suite excluded from pass count.
+Fixes: safe gate alignment and scrolling, long-name wrapping and adaptive typography (32+ characters), dynamic names/date in Cinematic and Editorial covers. Visual truncation of long decorative stationery text is intentional; full names in main content.
+
+ADDITIONAL CHECKS
+PASS Upload, decode, play, stop WAV 
+PASS Upload, decode, play, stop OGG 
+PASS Upload, decode, play, stop M4A 
+PASS 10 switches during active sample/guest interaction: single iframe 
+PASS Editor sample plays after switch 
+PASS Switch stops previous editor sample 
+PASS Starting editor sample pauses current guest audio 
+PASS secret-letter touch tap opening 
+PASS secret-letter visible focus on keyboard navigation 
+PASS secret-letter form controls have accessible name 
+PASS secret-letter meaningful images have alt attribute 
+PASS secret-letter touch photo viewer opens 
+PASS secret-letter Escape closes photo viewer 
+PASS secret-letter RSVP unavailable storage reports failure 
+PASS secret-letter long-name opening skip reachable 
+PASS secret-letter 100-character names: no horizontal document overflow 
+PASS secret-letter long-name hero text bounds {"ok": true, "left": 24, "right": 296}
+PASS cinematic-romance touch tap opening 
+PASS cinematic-romance visible focus on keyboard navigation 
+PASS cinematic-romance form controls have accessible name 
+PASS cinematic-romance meaningful images have alt attribute 
+PASS cinematic-romance touch photo viewer opens 
+PASS cinematic-romance Escape closes photo viewer 
+PASS cinematic-romance RSVP unavailable storage reports failure 
+PASS cinematic-romance long-name opening skip reachable 
+PASS cinematic-romance 100-character names: no horizontal document overflow 
+PASS cinematic-romance long-name hero text bounds {"ok": true, "left": 16, "right": 296}
+PASS wedding-editorial touch tap opening 
+PASS wedding-editorial visible focus on keyboard navigation 
+PASS wedding-editorial form controls have accessible name 
+PASS wedding-editorial meaningful images have alt attribute 
+PASS wedding-editorial touch photo viewer opens 
+PASS wedding-editorial Escape closes photo viewer 
+PASS wedding-editorial RSVP unavailable storage reports failure 
+PASS wedding-editorial long-name opening skip reachable 
+PASS wedding-editorial 100-character names: no horizontal document overflow 
+PASS wedding-editorial long-name hero text bounds {"ok": true, "left": 16, "right": 304}
+PASS enchanted-garden touch tap opening 
+PASS enchanted-garden visible focus on keyboard navigation 
+PASS enchanted-garden form controls have accessible name 
+PASS enchanted-garden meaningful images have alt attribute 
+PASS enchanted-garden touch photo viewer opens 
+PASS enchanted-garden Escape closes photo viewer 
+PASS enchanted-garden RSVP unavailable storage reports failure 
+PASS enchanted-garden long-name opening skip reachable 
+PASS enchanted-garden 100-character names: no horizontal document overflow 
+PASS enchanted-garden long-name hero text bounds {"ok": true, "left": 44, "right": 276}
+PASS our-story touch tap opening 
+PASS our-story visible focus on keyboard navigation 
+PASS our-story form controls have accessible name 
+PASS our-story meaningful images have alt attribute 
+PASS our-story touch photo viewer opens 
+PASS our-story Escape closes photo viewer 
+PASS our-story RSVP unavailable storage reports failure 
+PASS our-story long-name opening skip reachable 
+PASS our-story 100-character names: no horizontal document overflow 
+PASS our-story long-name hero text bounds {"ok": true, "left": 15, "right": 289}
+BLOCKED Native storage Page.evaluate: SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.
+BLOCKED Safari / WebKit / Firefox Executables unavailable; Chromium mobile emulation is not Safari or a physical device.
+BLOCKED Lighthouse / field CWV No Lighthouse executable or deployable URL; local set_content timing is only a diagnostic.
+PASS No uncaught JavaScript errors 
+
+DIAGNOSTICS (not included in assertions)
+{
+  "heap_diagnostic": {
+    "before": {
+      "Documents": 3,
+      "JSEventListeners": 59,
+      "Nodes": 740,
+      "JSHeapUsedSize": 4176724
+    },
+    "after_30_switches": {
+      "Documents": 3,
+      "JSEventListeners": 60,
+      "Nodes": 749,
+      "JSHeapUsedSize": 5237944
+    },
+    "iframe_count": 1,
+    "note": "Parent renderer only; not a full memory leak profile."
+  },
+  "dynamic_cover": {
+    "secret-letter": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": true,
+      "new_date_visible": false
+    },
+    "cinematic-romance": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": true,
+      "new_date_visible": true
+    },
+    "wedding-editorial": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": true,
+      "new_date_visible": true
+    },
+    "enchanted-garden": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": false,
+      "new_date_visible": false
+    },
+    "our-story": {
+      "old_demo_names_present": false,
+      "old_short_date_present": false,
+      "new_name_visible": false,
+      "new_date_visible": false
+    }
+  },
+  "contrast_sample": {
+    "secret-letter": {
+      "checked": 15,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "cinematic-romance": {
+      "checked": 43,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "wedding-editorial": {
+      "checked": 33,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "enchanted-garden": {
+      "checked": 42,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    },
+    "our-story": {
+      "checked": 38,
+      "flagged": [],
+      "note": "Only sampled opaque flat backgrounds; not WCAG certification."
+    }
+  },
+  "audio_analysis": {
+    "garden-waltz.mp3": {
+      "mean_volume": "-13.2 dB",
+      "max_volume": "-3.3 dB"
+    },
+    "golden-hour.mp3": {
+      "mean_volume": "-13.8 dB",
+      "max_volume": "-3.3 dB"
+    },
+    "ivory-nocturne.mp3": {
+      "mean_volume": "-14.0 dB",
+      "max_volume": "-3.3 dB"
+    }
+  }
+}
+
+PERFORMANCE (local HTML injection + image decode, no network, not LCP/INP/CLS)
+[
+  {
+    "template": "secret-letter",
+    "html_bytes": 760961,
+    "set_content_and_decode_ms": 134.0,
+    "dom_nodes": 617,
+    "js_heap_bytes": 3756424
+  },
+  {
+    "template": "cinematic-romance",
+    "html_bytes": 1086947,
+    "set_content_and_decode_ms": 97.0,
+    "dom_nodes": 1543,
+    "js_heap_bytes": 11590816
+  },
+  {
+    "template": "wedding-editorial",
+    "html_bytes": 1143522,
+    "set_content_and_decode_ms": 107.0,
+    "dom_nodes": 2448,
+    "js_heap_bytes": 20525820
+  },
+  {
+    "template": "enchanted-garden",
+    "html_bytes": 1416550,
+    "set_content_and_decode_ms": 130.5,
+    "dom_nodes": 4265,
+    "js_heap_bytes": 29370928
+  },
+  {
+    "template": "our-story",
+    "html_bytes": 1219668,
+    "set_content_and_decode_ms": 133.1,
+    "dom_nodes": 5255,
+    "js_heap_bytes": 38449888
+  }
+]
+
+REMAINING RELEASE GATES
+Actual iOS Safari, Android physical device, WhatsApp webview, real touch swipe/drag and screen reader; native storage reload/quota/migration and real BFCache; complete WCAG audit including contrast on photos/gradients; Lighthouse on deployed URL and field CWV; extended memory profiling (including iframe processes); audio audition and real-device controls; WOFF2 fonts/license review; server-side security, storage, authorization, payment and publish. No production readiness assertion.

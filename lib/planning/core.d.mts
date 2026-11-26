@@ -1,0 +1,12 @@
+export type Task={id:string;title:string;due:string;assignee:string;status:'todo'|'doing'|'done'};
+export type Vendor={id:string;name:string;category:string;contact:string;status:'shortlist'|'contacted'|'booked'|'completed';note:string};
+export type Expense={id:string;title:string;category:string;vendor:string;estimated:number;actual:number|null};
+export type Payment={id:string;expense:string;date:string;amount:number;note:string};
+export type Rundown={id:string;date:string;start:string;end:string;title:string;pic:string;location:string};
+export type Plan={schema:1;target:number;tasks:Task[];vendors:Vendor[];expenses:Expense[];payments:Payment[];rundown:Rundown[]};
+export function emptyPlan():Plan;
+export function validatePlan(raw:unknown):Plan;
+export function summary(p:Plan):{estimated:number;actual:number;paid:number;projected:number;remaining:number;outstanding:number;unknownActual:number;done:number;total:number};
+export function sortedRundown(p:Plan):Rundown[];
+export function overlaps(p:Plan):[string,string][];
+export function exportPlan(p:Plan):string;

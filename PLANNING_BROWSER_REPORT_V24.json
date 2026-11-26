@@ -1,0 +1,722 @@
+[
+  {
+    "tab": "tasks",
+    "width": 320,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 320,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 320,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 320,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 320,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 320,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 390,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 390,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 390,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 390,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 390,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 390,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 768,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 768,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 768,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 768,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 768,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 768,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 1440,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 1440,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 1440,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 1440,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 1440,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "tasks",
+    "width": 1440,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 320,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 320,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 320,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 320,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 320,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 320,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 390,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 390,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 390,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 390,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 390,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 390,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 768,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 768,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 768,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 768,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 768,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 768,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 1440,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 1440,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 1440,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 1440,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 1440,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "vendors",
+    "width": 1440,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 320,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 320,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 320,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 320,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 320,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 320,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 390,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 390,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 390,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 390,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 390,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 390,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 768,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 768,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 768,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 768,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 768,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 768,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 1440,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 1440,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 1440,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 1440,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 1440,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "expenses",
+    "width": 1440,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 320,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 320,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 320,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 320,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 320,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 320,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 390,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 390,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 390,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 390,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 390,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 390,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 768,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 768,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 768,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 768,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 768,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 768,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 1440,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 1440,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 1440,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 1440,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 1440,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "payments",
+    "width": 1440,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 320,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 320,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 320,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 320,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 320,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 320,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 390,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 390,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 390,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 390,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 390,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 390,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 768,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 768,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 768,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 768,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 768,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 768,
+    "check": "rows",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 1440,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 1440,
+    "check": "five tabs",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 1440,
+    "check": "one active tab",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 1440,
+    "check": "required form field",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 1440,
+    "check": "statistics",
+    "pass": true
+  },
+  {
+    "tab": "rundown",
+    "width": 1440,
+    "check": "rows",
+    "pass": true
+  }
+]

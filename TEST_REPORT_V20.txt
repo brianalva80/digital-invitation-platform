@@ -1,0 +1,168 @@
+AMPLOP V20 — actual test evidence
+Targeted node cloud tests: 13/13 PASS.
+Full source-level npm test: 24/24 PASS.
+Syntax-only TypeScript transpilation: 3/3 changed TSX files PASS (account/page, account/workspace, dashboard/page).
+Node syntax check: draft.mjs, generated v14-engine.mjs, sync-cloud.mjs PASS.
+Original V16 manifest and V14 demo byte identity: PASS in npm test.
+SQL isolation fixture supplied, not run (no psql or live Supabase).
+No npm installation attempted; prior registry blocker, no node_modules. Next build/typecheck, browser auth/real storage and DB integration NOT RUN.
+No Codex/Work session, live service, deployment or payment action.
+
+
+> amplop@0.20.0 test
+> node --test tests/foundation.test.mjs tests/showcase.test.mjs tests/dashboard.test.mjs tests/cloud.test.mjs
+
+TAP version 13
+# Subtest: exact original renderer source reused
+ok 1 - exact original renderer source reused
+  ---
+  duration_ms: 1.676662
+  type: 'test'
+  ...
+# Subtest: all five templates preserve draft content through local/cloud roundtrip
+ok 2 - all five templates preserve draft content through local/cloud roundtrip
+  ---
+  duration_ms: 5.252099
+  type: 'test'
+  ...
+# Subtest: actual WebP and original MP3 survive unchanged
+ok 3 - actual WebP and original MP3 survive unchanged
+  ---
+  duration_ms: 6.082533
+  type: 'test'
+  ...
+# Subtest: legacy draft missing optional V12 fields is normalized without deleting content
+ok 4 - legacy draft missing optional V12 fields is normalized without deleting content
+  ---
+  duration_ms: 0.458222
+  type: 'test'
+  ...
+# Subtest: primary draft takes precedence; malformed primary is not silently replaced
+ok 5 - primary draft takes precedence; malformed primary is not silently replaced
+  ---
+  duration_ms: 0.520786
+  type: 'test'
+  ...
+# Subtest: unsupported fields, template, colors and typography rejected
+ok 6 - unsupported fields, template, colors and typography rejected
+  ---
+  duration_ms: 1.65641
+  type: 'test'
+  ...
+# Subtest: unsafe photo/audio sources, missing custom audio and oversized upload rejected
+ok 7 - unsafe photo/audio sources, missing custom audio and oversized upload rejected
+  ---
+  duration_ms: 8.009722
+  type: 'test'
+  ...
+# Subtest: invalid event schedule, schema and timezone rejected using V14 validator
+ok 8 - invalid event schedule, schema and timezone rejected using V14 validator
+  ---
+  duration_ms: 0.845006
+  type: 'test'
+  ...
+# Subtest: invalid restore does not overwrite previous local draft
+ok 9 - invalid restore does not overwrite previous local draft
+  ---
+  duration_ms: 0.885577
+  type: 'test'
+  ...
+# Subtest: storage quota error propagates, no clear or fallback mutation
+ok 10 - storage quota error propagates, no clear or fallback mutation
+  ---
+  duration_ms: 1.236727
+  type: 'test'
+  ...
+# Subtest: clear affects both local draft keys only
+ok 11 - clear affects both local draft keys only
+  ---
+  duration_ms: 0.288405
+  type: 'test'
+  ...
+# Subtest: migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+ok 12 - migration contains owner RLS, no public writes, explicit RPC authorization and CAS
+  ---
+  duration_ms: 0.569219
+  type: 'test'
+  ...
+# Subtest: cloud UI separates demo, explicit confirmation, conflict and auth flows
+ok 13 - cloud UI separates demo, explicit confirmation, conflict and auth flows
+  ---
+  duration_ms: 0.275456
+  type: 'test'
+  ...
+# Subtest: dashboard uses unchanged V14 engine and editor storage keys
+ok 14 - dashboard uses unchanged V14 engine and editor storage keys
+  ---
+  duration_ms: 3.58376
+  type: 'test'
+  ...
+# Subtest: dashboard route and landing CTA integrated; one authorized auth dependency
+ok 15 - dashboard route and landing CTA integrated; one authorized auth dependency
+  ---
+  duration_ms: 1.038137
+  type: 'test'
+  ...
+# Subtest: dashboard has sandboxed preview and transparent planned module states
+ok 16 - dashboard has sandboxed preview and transparent planned module states
+  ---
+  duration_ms: 0.313704
+  type: 'test'
+  ...
+# Subtest: exactly five original template keys and source files
+ok 17 - exactly five original template keys and source files
+  ---
+  duration_ms: 1.757944
+  type: 'test'
+  ...
+# Subtest: original V16 manifest integrity
+ok 18 - original V16 manifest integrity
+  ---
+  duration_ms: 40.37177
+  type: 'test'
+  ...
+# Subtest: public preview byte-identical to V14 source
+ok 19 - public preview byte-identical to V14 source
+  ---
+  duration_ms: 5.028021
+  type: 'test'
+  ...
+# Subtest: foundation route files and runtime scripts present
+ok 20 - foundation route files and runtime scripts present
+  ---
+  duration_ms: 0.658404
+  type: 'test'
+  ...
+# Subtest: no local credentials and migration source present
+ok 21 - no local credentials and migration source present
+  ---
+  duration_ms: 0.598945
+  type: 'test'
+  ...
+# Subtest: five showcase cards and local demo links
+ok 22 - five showcase cards and local demo links
+  ---
+  duration_ms: 59.473568
+  type: 'test'
+  ...
+# Subtest: CTA, navigation and accessible native opening present
+ok 23 - CTA, navigation and accessible native opening present
+  ---
+  duration_ms: 0.538132
+  type: 'test'
+  ...
+# Subtest: staging remains noindex and claims remain demo-only
+ok 24 - staging remains noindex and claims remain demo-only
+  ---
+  duration_ms: 0.248666
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 249.450874

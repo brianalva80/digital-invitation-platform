@@ -1,0 +1,10 @@
+:root { color-scheme: light; --paper:#f7f1e7; --ink:#392d29; --accent:#713a42; --line:#c8b89c; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:system-ui,sans-serif; line-height:1.65; }
+.shell { width:min(100% - 2rem, 42rem); margin-inline:auto; padding-block:clamp(2rem,10vw,7rem); overflow-wrap:anywhere; }
+h1 { font:normal clamp(2.5rem,8vw,4.5rem)/1.08 Georgia,serif; margin:.6em 0 .4em; }
+.eyebrow { font-size:.75rem; font-weight:650; letter-spacing:.13em; text-transform:uppercase; }
+a { color:var(--accent); text-underline-offset:.2em; }
+.primary { display:inline-flex; align-items:center; min-height:44px; padding:.7rem 1.2rem; margin-block:1rem; background:var(--accent); color:#fff; border-radius:.25rem; text-decoration:none; }
+a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+.note { border-inline-start:2px solid var(--line); padding-inline-start:1rem; font-size:.9rem; }

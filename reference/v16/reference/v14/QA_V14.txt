@@ -1,0 +1,64 @@
+V14 focused UI regression, Chromium in-memory, reduced-motion, muted runner.
+PASS secret-letter hidden during gate
+PASS secret-letter starts collapsed
+PASS secret-letter no autoplay
+PASS secret-letter play via visible button
+PASS secret-letter expand and controls visible
+PASS secret-letter mute works
+PASS secret-letter Escape collapses and restores focus
+PASS secret-letter pause works
+PASS secret-letter expanded fits 320
+PASS secret-letter expanded fits 390
+PASS secret-letter expanded fits 1440
+PASS secret-letter replay closes controls
+PASS cinematic-romance hidden during gate
+PASS cinematic-romance starts collapsed
+PASS cinematic-romance no autoplay
+PASS cinematic-romance play via visible button
+PASS cinematic-romance expand and controls visible
+PASS cinematic-romance mute works
+PASS cinematic-romance Escape collapses and restores focus
+PASS cinematic-romance pause works
+PASS cinematic-romance expanded fits 320
+PASS cinematic-romance expanded fits 390
+PASS cinematic-romance expanded fits 1440
+PASS cinematic-romance replay closes controls
+PASS wedding-editorial hidden during gate
+PASS wedding-editorial starts collapsed
+PASS wedding-editorial no autoplay
+PASS wedding-editorial play via visible button
+PASS wedding-editorial expand and controls visible
+PASS wedding-editorial mute works
+PASS wedding-editorial Escape collapses and restores focus
+PASS wedding-editorial pause works
+PASS wedding-editorial expanded fits 320
+PASS wedding-editorial expanded fits 390
+PASS wedding-editorial expanded fits 1440
+PASS wedding-editorial replay closes controls
+PASS enchanted-garden hidden during gate
+PASS enchanted-garden starts collapsed
+PASS enchanted-garden no autoplay
+PASS enchanted-garden play via visible button
+PASS enchanted-garden expand and controls visible
+PASS enchanted-garden mute works
+PASS enchanted-garden Escape collapses and restores focus
+PASS enchanted-garden pause works
+PASS enchanted-garden expanded fits 320
+PASS enchanted-garden expanded fits 390
+PASS enchanted-garden expanded fits 1440
+PASS enchanted-garden replay closes controls
+PASS our-story hidden during gate
+PASS our-story starts collapsed
+PASS our-story no autoplay
+PASS our-story play via visible button
+PASS our-story expand and controls visible
+PASS our-story mute works
+PASS our-story Escape collapses and restores focus
+PASS our-story pause works
+PASS our-story expanded fits 320
+PASS our-story expanded fits 390
+PASS our-story expanded fits 1440
+PASS our-story replay closes controls
+PASS no uncaught browser errors
+61 passed / 0 failed
+Errors: []

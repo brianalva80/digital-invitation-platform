@@ -1,0 +1,18 @@
+asset_id,theme,asset_type,aspect_ratio,quantity,target_web_kb,status,rights_or_notes
+SL-01,secret-letter,envelope and flap,3:2,1,30,prototype CSS,original refine after approval
+SL-02,secret-letter,seal and monogram,1:1,1,15,prototype CSS,original
+SL-03,secret-letter,botanical engraving,3:2,1,35,prototype SVG,original refine
+SL-04,secret-letter,hero portrait,3:4 and 16:9,2,300 each,not supplied,approved fictional or licensed/supplied
+SL-05,secret-letter,story and gallery photos,3:4 and 4:3,3-6,200 each,not supplied,approved or licensed
+CR-01,cinematic,poster,9:16 and 16:9,2,300 each,placeholder SVG,replace with approved images
+CR-02,cinematic,chapter stills,9:16 and 16:9,3,200 each,placeholder SVG,approved images
+CR-03,cinematic,optional muted scrub video,9:16 and 16:9,1-2,measure separately,not supplied,license and codec check; poster fallback
+ED-01,editorial,magazine cover,3:4,1,40,prototype CSS,original layout
+ED-02,editorial,portrait and editorial spreads,3:4 and 3:2,5-7,200-300 each,placeholder SVG,approved photography
+GA-01,garden,gate and ornaments,4:5,1 set,60,prototype CSS/SVG,original refine
+GA-02,garden,botanical parallax layers,4:5 and 16:9,3-4,50 each,placeholder SVG,original separated vector layers
+GA-03,garden,arch portraits,3:4,3-5,200 each,not supplied,approved photography
+OS-01,our-story,polaroid and tape,3:4,1 set,30,prototype CSS,original
+OS-02,our-story,memories photography,3:4 and 4:3,5-8,200 each,placeholder SVG,approved photography
+SH-01,all,optional music,audio,1 per theme,measure separately,not supplied,licensed with opt-in playback
+SH-02,all,typography,WOFF2,1-2 families per theme,measure separately,system fallback,verify license before bundling

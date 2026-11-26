@@ -1,0 +1,10 @@
+PASS: JSON Schema meta-validation and sample publish payload
+PASS: rejects unknown template
+PASS: rejects missing chapter
+PASS: rejects wrong timezone
+PASS: rejects invalid audio ref
+PASS: rejects invalid font index
+PASS: rejects guest injection
+PASS: rejects bad date
+PASS: YAML parse, unique operation IDs, path parameter coverage and auth annotations (17 operations)
+NOT RUN: PostgreSQL migration, actual endpoints, payment sandbox, RLS/tenant enforcement, browser/deployment. No PostgreSQL executable available. API check is structural, not full OpenAPI validation.

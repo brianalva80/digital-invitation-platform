@@ -1,0 +1,347 @@
+{
+  "checks": [
+    {
+      "name": "Upload, decode, play, stop WAV",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Upload, decode, play, stop OGG",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Upload, decode, play, stop M4A",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "10 switches during active sample/guest interaction: single iframe",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Editor sample plays after switch",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Switch stops previous editor sample",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Starting editor sample pauses current guest audio",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter touch tap opening",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter visible focus on keyboard navigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter form controls have accessible name",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter meaningful images have alt attribute",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter touch photo viewer opens",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter Escape closes photo viewer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter RSVP unavailable storage reports failure",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter long-name opening skip reachable",
+      "status": "FAIL",
+      "detail": "Locator.click: Timeout 900ms exceeded."
+    },
+    {
+      "name": "secret-letter 100-character names: no horizontal document overflow",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "name": "secret-letter long-name hero text bounds",
+      "status": "PASS",
+      "detail": "{\"ok\": true, \"left\": 24, \"right\": 296}"
+    },
+    {
+      "name": "cinematic-romance touch tap opening",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance visible focus on keyboard navigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance form controls have accessible name",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance meaningful images have alt attribute",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance touch photo viewer opens",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance Escape closes photo viewer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance RSVP unavailable storage reports failure",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance long-name opening skip reachable",
+      "status": "FAIL",
+      "detail": "Locator.click: Timeout 900ms exceeded."
+    },
+    {
+      "name": "cinematic-romance 100-character names: no horizontal document overflow",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cinematic-romance long-name hero text bounds",
+      "status": "PASS",
+      "detail": "{\"ok\": true, \"left\": 16, \"right\": 274}"
+    },
+    {
+      "name": "wedding-editorial touch tap opening",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial visible focus on keyboard navigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial form controls have accessible name",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial meaningful images have alt attribute",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial touch photo viewer opens",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial Escape closes photo viewer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial RSVP unavailable storage reports failure",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial long-name opening skip reachable",
+      "status": "FAIL",
+      "detail": "Locator.click: Timeout 900ms exceeded."
+    },
+    {
+      "name": "wedding-editorial 100-character names: no horizontal document overflow",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "name": "wedding-editorial long-name hero text bounds",
+      "status": "PASS",
+      "detail": "{\"ok\": true, \"left\": 16, \"right\": 304}"
+    },
+    {
+      "name": "enchanted-garden touch tap opening",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden visible focus on keyboard navigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden form controls have accessible name",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden meaningful images have alt attribute",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden touch photo viewer opens",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden Escape closes photo viewer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden RSVP unavailable storage reports failure",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden long-name opening skip reachable",
+      "status": "FAIL",
+      "detail": "Locator.click: Timeout 900ms exceeded."
+    },
+    {
+      "name": "enchanted-garden 100-character names: no horizontal document overflow",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "name": "enchanted-garden long-name hero text bounds",
+      "status": "FAIL",
+      "detail": "{\"ok\": false, \"left\": 2195, \"right\": 6869}"
+    },
+    {
+      "name": "our-story touch tap opening",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story visible focus on keyboard navigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story form controls have accessible name",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story meaningful images have alt attribute",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story touch photo viewer opens",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story Escape closes photo viewer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story RSVP unavailable storage reports failure",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "our-story long-name opening skip reachable",
+      "status": "FAIL",
+      "detail": "Locator.click: Timeout 900ms exceeded."
+    },
+    {
+      "name": "our-story 100-character names: no horizontal document overflow",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "name": "our-story long-name hero text bounds",
+      "status": "FAIL",
+      "detail": "{\"ok\": false, \"left\": 15, \"right\": 4459}"
+    },
+    {
+      "name": "Native storage",
+      "status": "BLOCKED",
+      "detail": "Page.evaluate: SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+    },
+    {
+      "name": "Safari / WebKit / Firefox",
+      "status": "BLOCKED",
+      "detail": "Executables unavailable; Chromium mobile emulation is not Safari or a physical device."
+    },
+    {
+      "name": "Lighthouse / field CWV",
+      "status": "BLOCKED",
+      "detail": "No Lighthouse executable or deployable URL; local set_content timing is only a diagnostic."
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "metrics": [
+    {
+      "template": "secret-letter",
+      "html_bytes": 759886,
+      "set_content_and_decode_ms": 131.2,
+      "dom_nodes": 617,
+      "js_heap_bytes": 3753196
+    },
+    {
+      "template": "cinematic-romance",
+      "html_bytes": 1085870,
+      "set_content_and_decode_ms": 105.3,
+      "dom_nodes": 1548,
+      "js_heap_bytes": 11617648
+    },
+    {
+      "template": "wedding-editorial",
+      "html_bytes": 1142445,
+      "set_content_and_decode_ms": 121.9,
+      "dom_nodes": 2465,
+      "js_heap_bytes": 22013684
+    },
+    {
+      "template": "enchanted-garden",
+      "html_bytes": 1415475,
+      "set_content_and_decode_ms": 147.2,
+      "dom_nodes": 4288,
+      "js_heap_bytes": 30108748
+    },
+    {
+      "template": "our-story",
+      "html_bytes": 1218593,
+      "set_content_and_decode_ms": 131.1,
+      "dom_nodes": 5284,
+      "js_heap_bytes": 38598320
+    }
+  ],
+  "errors": []
+}

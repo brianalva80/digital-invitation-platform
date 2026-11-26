@@ -1,0 +1,12 @@
+export function validPin(v:unknown):v is string;
+export function newSecret():string;
+export function digest(v:string):string;
+export function hashPin(pin:string):string;
+export function verifyPin(pin:unknown,stored:unknown):boolean;
+export function issueProof(token:string,key:string,now?:number):string;
+export function verifyProof(value:unknown,token:string,key:string,now?:number):boolean;
+export function qrPayload(code:string):string;
+export function parseQR(value:unknown):string;
+export function checkCount(value:unknown):number;
+export function exportAttendance(rows:{name:string;seats:number;checked:number|null;checked_at:string|null}[]):string;
+export function pinPage(token:string,notice?:string):string;

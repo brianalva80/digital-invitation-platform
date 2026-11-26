@@ -1,0 +1,52 @@
+V12 Chromium in-memory, reduced motion, storage test double, muted launch (media playback time checked; acoustic quality not auditioned).
+PASS default no music
+PASS three font options
+PASS font CSS applied
+PASS both wax seal monogram layers updated
+PASS no autoplay on load
+PASS opening playback enabled
+PASS editor sample playback
+PASS editor sample stop
+PASS secret-letter retains data and music
+PASS secret-letter font options
+PASS secret-letter opens and starts audio
+PASS secret-letter mute
+PASS secret-letter pause
+PASS cinematic-romance retains data and music
+PASS cinematic-romance font options
+PASS cinematic-romance opens and starts audio
+PASS cinematic-romance mute
+PASS cinematic-romance pause
+PASS wedding-editorial retains data and music
+PASS wedding-editorial font options
+PASS wedding-editorial opens and starts audio
+PASS wedding-editorial mute
+PASS wedding-editorial pause
+PASS enchanted-garden retains data and music
+PASS enchanted-garden font options
+PASS enchanted-garden opens and starts audio
+PASS enchanted-garden mute
+PASS enchanted-garden pause
+PASS our-story retains data and music
+PASS our-story font options
+PASS our-story opens and starts audio
+PASS our-story mute
+PASS our-story pause
+PASS per-template font remembered
+PASS golden-hour bundled track
+PASS garden-waltz bundled track
+PASS custom audio loaded
+PASS volume propagated
+PASS draft restores preferences
+PASS export includes audio and font
+PASS remove custom music
+PASS opt out opening audio
+PASS editor no overflow 320
+PASS editor no overflow 390
+PASS editor no overflow 768
+PASS editor no overflow 1440
+PASS reset removes music and font setting
+PASS no uncaught JS errors
+48 passed / 0 failed.
+Errors: []
+Not tested: real storage, Safari, actual speakers, iOS volume, production deployment, Lighthouse, backend.
