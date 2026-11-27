@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+  <title>AMPLOP | Private Studio</title><link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="preview.css">
+</head>
+<body>
+  <header><a class="brand" href="./">AMPLOP <span>PRIVATE STUDIO</span></a><span id="storage-warning">Local browser storage only · Keep separate backups</span></header>
+  <main>
+    <aside class="sidebar"><div class="side-head"><div><p class="eyebrow">OWNER WORKSPACE</p><h1>Projects</h1></div><button id="new-project" class="primary">＋ New project</button></div>
+      <label class="search">Search projects<input id="search" type="search" placeholder="Names or project title"></label><div id="projects" class="project-list"></div>
+      <div class="side-actions"><button id="restore">Restore backup</button><input id="backup-file" type="file" accept="application/json,.json" hidden></div>
+    </aside>
+    <section class="workspace">
+      <div id="empty" class="empty"><p class="eyebrow">AMPLOP / 01</p><h2>Your private invitation workspace.</h2><p>Create a project to begin.</p><button class="primary" id="empty-new">Create new project</button></div>
+      <div id="editor" hidden>
+        <div class="toolbar"><div><p class="eyebrow" id="project-meta">LOCAL PROJECT</p><h2 id="project-title"></h2></div><div class="toolbar-actions"><button id="rename">Rename</button><button id="duplicate">Duplicate</button><select id="status"><option>Draft</option><option>In Progress</option><option>Ready to Publish</option></select><button id="save" class="primary">Save</button><button id="preview">Preview</button><button id="export">Export HTML</button><button id="backup">Backup</button><button id="delete" class="danger">Delete</button></div></div>
+        <div class="editor-grid"><form id="fields">
+          <fieldset><legend>Design</legend><label>Template<select id="template"></select></label><label>Color<select id="color"></select></label><label>Typography<select id="font"></select></label></fieldset>
+          <fieldset><legend>Couple</legend><div class="two"><label>First name<input id="first" maxlength="100" required></label><label>Second name<input id="second" maxlength="100" required></label></div><label>City<input id="city" maxlength="100" required></label><label>Country<input id="country" maxlength="100" required></label></fieldset>
+          <fieldset><legend>Events · WIB</legend><div id="events"></div></fieldset>
+          <fieldset><legend>Love story</legend><div id="story"></div></fieldset>
+          <fieldset><legend>Photos</legend><p class="hint">WebP only, maximum 2 MB per photo. Photos stay in this browser project.</p><div id="photos"></div></fieldset>
+          <fieldset><legend>Music</legend><label>Track<select id="music"><option value="none">No music</option><option value="ivory-nocturne">Ivory Nocturne</option><option value="golden-hour">Golden Hour</option><option value="garden-waltz">Garden Waltz</option><option value="custom">Custom audio file</option></select></label><label>Upload audio<input id="music-file" type="file" accept="audio/mpeg,audio/wav,audio/ogg,audio/mp4,.mp3,.wav,.ogg,.m4a"></label><label>Volume<input id="volume" type="range" min="0" max="1" step="0.05"></label><label class="check"><input id="on-open" type="checkbox"> Start after invitation opens</label></fieldset>
+          <fieldset><legend>Preview</legend><label>Viewport<select id="mode"><option value="mobile">Mobile</option><option value="desktop">Desktop</option></select></label></fieldset>
+        </form><section class="preview-panel"><div class="preview-head"><span>INVITATION PREVIEW</span><div><button id="refresh-preview" title="Refresh preview">↻</button><button id="fullscreen-preview" title="Full screen preview">Full screen</button></div></div><div id="preview-frame"></div><p id="notice" role="status"></p></section></div>
+      </div>
+    </section>
+  </main><dialog id="confirm"><form method="dialog"><p id="confirm-text"></p><div class="dialog-actions"><button value="cancel">Cancel</button><button id="confirm-yes" value="yes" class="danger">Confirm</button></div></form></dialog>
+  <script src="engine-v14.js"></script><script src="bundle-v14.js"></script><script type="module" src="studio.js"></script>
+</body></html>
