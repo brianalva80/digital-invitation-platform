@@ -15,7 +15,7 @@
     <section class="workspace">
       <div id="empty" class="empty"><p class="eyebrow">AMPLOP / 01</p><h2>Your private invitation workspace.</h2><p>Create a project to begin.</p><button class="primary" id="empty-new">Create new project</button></div>
       <div id="editor" hidden>
-        <div class="toolbar"><div><p class="eyebrow" id="project-meta">LOCAL PROJECT</p><h2 id="project-title"></h2></div><div class="toolbar-actions"><button id="rename">Rename</button><button id="duplicate">Duplicate</button><select id="status"><option>Draft</option><option>In Progress</option><option>Ready to Publish</option></select><button id="save" class="primary">Save</button><button id="preview">Preview</button><button id="export">Export HTML</button><button id="backup">Backup</button><button id="delete" class="danger">Delete</button></div></div>
+        <div class="toolbar"><div><p class="eyebrow" id="project-meta">LOCAL PROJECT</p><h2 id="project-title"></h2></div><div class="toolbar-actions"><button id="rename">Rename</button><button id="duplicate">Duplicate</button><select id="status"><option>Draft</option><option>In Progress</option><option>Ready to Publish</option></select><button id="save" class="primary">Save</button><button id="preview">Preview</button><button id="export">Export HTML</button><button id="export-package">Export sharing package</button><button id="backup">Backup</button><button id="delete" class="danger">Delete</button></div></div>
         <div class="editor-grid"><form id="fields">
           <fieldset><legend>Design</legend><label>Template<select id="template"></select></label><label>Color<select id="color"></select></label><label>Typography<select id="font"></select></label></fieldset>
           <fieldset><legend>Couple</legend><div class="two"><label>First name<input id="first" maxlength="100" required></label><label>Second name<input id="second" maxlength="100" required></label></div><label>City<input id="city" maxlength="100" required></label><label>Country<input id="country" maxlength="100" required></label></fieldset>
@@ -28,5 +28,5 @@
       </div>
     </section>
   </main><dialog id="confirm"><form method="dialog"><p id="confirm-text"></p><div class="dialog-actions"><button value="cancel">Cancel</button><button id="confirm-yes" value="yes" class="danger">Confirm</button></div></form></dialog>
-  <script src="engine-v14.js"></script><script src="bundle-v14.js"></script><script type="module" src="studio.js"></script>
+  <script src="engine-v14.js"></script><script src="bundle-v14.js"></script><script type="module" src="sharing-tool.mjs"></script><script type="module" src="studio.js"></script>
 </body></html>

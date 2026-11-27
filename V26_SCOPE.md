@@ -63,4 +63,4 @@ Keep these as clear product/security boundaries. This scope does not prescribe a
 7. V26.7 Vercel Preview Deployment
 8. V26.8 Commercial Readiness
 
-V26.1 Project Foundation and V26.2 Public Portfolio and WhatsApp Checkout are complete. V26.3 Private Admin Studio is the only currently authorized milestone. Keep the studio local-only, serve only `admin-studio/` on 127.0.0.1, and exclude it from the independent `portfolio/` artifact. Do not deploy, commit, or push. Later milestones are planning criteria, not authorization to implement. Stop after V26.3.
+V26.1 Project Foundation, V26.2 Public Portfolio and WhatsApp Checkout, and V26.3 Private Admin Studio are complete. V26.4 Client Invitation Sharing Tool is the only currently authorized milestone. Keep the studio local-only, serve only `admin-studio/` on 127.0.0.1, and exclude it from the independent `portfolio/` artifact. Sharing exports contain only the selected project's completed invitation and client-facing sharing page; do not include editor source or draft storage. Do not deploy, commit, or push. Later milestones are planning criteria, not authorization to implement. Stop after V26.4.
