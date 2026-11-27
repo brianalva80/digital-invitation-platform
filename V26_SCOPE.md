@@ -63,4 +63,4 @@ Keep these as clear product/security boundaries. This scope does not prescribe a
 7. V26.7 Vercel Preview Deployment
 8. V26.8 Commercial Readiness
 
-Only V26.1 is authorized by the current task. Later milestones are planning criteria, not authorization to implement. Stop after V26.1; do not proceed to V26.2 without owner approval.
+V26.1 Project Foundation is complete. V26.2 Public Portfolio and WhatsApp Checkout is the only currently authorized milestone. Build and verify the independent static portfolio in `portfolio/`; keep `noindex` enabled until commercial release. Do not deploy, commit, or push. Later milestones are planning criteria, not authorization to implement. Stop after V26.2; do not proceed to V26.3 without owner approval.
